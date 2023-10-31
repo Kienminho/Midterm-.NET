@@ -1,0 +1,17 @@
+D:\.NET\Ex_TH\src\DAL\bin\Debug\net7.0\DAL.deps.json
+D:\.NET\Ex_TH\src\DAL\bin\Debug\net7.0\DAL.dll
+D:\.NET\Ex_TH\src\DAL\bin\Debug\net7.0\DAL.pdb
+D:\.NET\Ex_TH\src\DAL\obj\Debug\net7.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\.NET\Ex_TH\src\DAL\obj\Debug\net7.0\DAL.AssemblyInfoInputs.cache
+D:\.NET\Ex_TH\src\DAL\obj\Debug\net7.0\DAL.AssemblyInfo.cs
+D:\.NET\Ex_TH\src\DAL\obj\Debug\net7.0\DAL.csproj.CoreCompileInputs.cache
+D:\.NET\Ex_TH\src\DAL\obj\Debug\net7.0\DAL.dll
+D:\.NET\Ex_TH\src\DAL\obj\Debug\net7.0\refint\DAL.dll
+D:\.NET\Ex_TH\src\DAL\obj\Debug\net7.0\DAL.pdb
+D:\.NET\Ex_TH\src\DAL\obj\Debug\net7.0\ref\DAL.dll
+D:\.NET\Ex_TH\src\DAL\bin\Debug\net7.0\DAL.runtimeconfig.json
+D:\.NET\Ex_TH\src\DAL\bin\Debug\net7.0\DTO.dll
+D:\.NET\Ex_TH\src\DAL\bin\Debug\net7.0\DTO.pdb
+D:\.NET\Ex_TH\src\DAL\obj\Debug\net7.0\DAL.csproj.AssemblyReference.cache
+D:\.NET\Ex_TH\src\DAL\obj\Debug\net7.0\DAL.csproj.CopyComplete
+D:\.NET\Ex_TH\src\DAL\obj\Debug\net7.0\DAL.genruntimeconfig.cache
