@@ -83,20 +83,20 @@
             // 
             mnu_ThongTinTaiKhoan.DropDownItems.AddRange(new ToolStripItem[] { mnu_TTCN, mnu_logOut });
             mnu_ThongTinTaiKhoan.Name = "mnu_ThongTinTaiKhoan";
-            mnu_ThongTinTaiKhoan.Size = new Size(194, 24);
-            mnu_ThongTinTaiKhoan.Text = "Thông tin tài khoản (User)";
+            mnu_ThongTinTaiKhoan.Size = new Size(151, 24);
+            mnu_ThongTinTaiKhoan.Text = "Thông tin tài khoản";
             // 
             // mnu_TTCN
             // 
             mnu_TTCN.Name = "mnu_TTCN";
-            mnu_TTCN.Size = new Size(218, 26);
+            mnu_TTCN.Size = new Size(224, 26);
             mnu_TTCN.Text = "Thông Tin Cá Nhân";
             mnu_TTCN.Click += mnu_TTCN_Click;
             // 
             // mnu_logOut
             // 
             mnu_logOut.Name = "mnu_logOut";
-            mnu_logOut.Size = new Size(218, 26);
+            mnu_logOut.Size = new Size(224, 26);
             mnu_logOut.Text = "Đăng Xuất";
             // 
             // mnu_QuanLyBanHang

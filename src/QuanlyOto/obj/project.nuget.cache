@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "n5faSGm7WiOCaqWsHRZJvs/0aotM3j1gpKy5Rheoftk9bZMp9ZrLZkPV6qBkNVXRgHVoowFgH2fktG5nwBdwdQ==",
+  "dgSpecHash": "a3J1iDtslSkQ3CZXyUuegurOSkLtvopEXj5rNGvA6vxk2L8l5ZBhGRrxQ1b1isLBIZHuQQ4xdTU2yLMA9zeI3Q==",
   "success": true,
-  "projectFilePath": "D:\\.NET\\Ex_TH\\src\\QuanlyOTo\\QuanlyOto.csproj",
+  "projectFilePath": "D:\\.NET\\MidTerm\\src\\QuanlyOto\\QuanlyOto.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kienl\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\kienl\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

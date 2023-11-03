@@ -30,10 +30,23 @@ namespace QuanlyOto
 
         private async void btn_login_Click(object sender, EventArgs e)
         {
+            handleLogin();
+        }
+
+        private void tbx_password_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                handleLogin();
+            }
+        }
+
+        async void handleLogin()
+        {
             string phoneNumber = tbx_phonenumber.Text;
             string password = tbx_password.Text;
-            if(phoneNumber == "" || password == "") 
-            { 
+            if (phoneNumber == "" || password == "")
+            {
                 MessageBox.Show("Vui lòng nhập đủ thông tin.");
                 return;
             }
@@ -55,7 +68,6 @@ namespace QuanlyOto
                 this.Hide();
                 homeForm.Show();
             }
-
 
         }
     }

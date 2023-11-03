@@ -2912,11 +2912,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\.NET\\Ex_TH\\src\\DAL\\DAL.csproj",
+      "projectUniqueName": "D:\\.NET\\MidTerm\\src\\DAL\\DAL.csproj",
       "projectName": "DAL",
-      "projectPath": "D:\\.NET\\Ex_TH\\src\\DAL\\DAL.csproj",
+      "projectPath": "D:\\.NET\\MidTerm\\src\\DAL\\DAL.csproj",
       "packagesPath": "C:\\Users\\kienl\\.nuget\\packages\\",
-      "outputPath": "D:\\.NET\\Ex_TH\\src\\DAL\\obj\\",
+      "outputPath": "D:\\.NET\\MidTerm\\src\\DAL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kienl\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2933,8 +2933,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\.NET\\Ex_TH\\src\\DTO\\DTO.csproj": {
-              "projectPath": "D:\\.NET\\Ex_TH\\src\\DTO\\DTO.csproj"
+            "D:\\.NET\\MidTerm\\src\\DTO\\DTO.csproj": {
+              "projectPath": "D:\\.NET\\MidTerm\\src\\DTO\\DTO.csproj"
             }
           }
         }

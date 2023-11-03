@@ -2891,11 +2891,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\.NET\\Ex_TH\\src\\DTO\\DTO.csproj",
+      "projectUniqueName": "D:\\.NET\\MidTerm\\src\\DTO\\DTO.csproj",
       "projectName": "DTO",
-      "projectPath": "D:\\.NET\\Ex_TH\\src\\DTO\\DTO.csproj",
+      "projectPath": "D:\\.NET\\MidTerm\\src\\DTO\\DTO.csproj",
       "packagesPath": "C:\\Users\\kienl\\.nuget\\packages\\",
-      "outputPath": "D:\\.NET\\Ex_TH\\src\\DTO\\obj\\",
+      "outputPath": "D:\\.NET\\MidTerm\\src\\DTO\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kienl\\AppData\\Roaming\\NuGet\\NuGet.Config",

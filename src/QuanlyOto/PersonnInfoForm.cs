@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,14 @@ namespace QuanlyOto
         public PersonnInfoForm()
         {
             InitializeComponent();
+        }
+
+        private void PersonnInfoForm_Load(object sender, EventArgs e)
+        {
+            tbx_phoneNumber.Text = GlobalVariables.infoAccount.PhoneNumber;
+            tbx_fullName.Text = GlobalVariables.infoAccount.FullName;
+            tbx_password.Text = GlobalVariables.infoAccount.Password;
+
         }
     }
 }

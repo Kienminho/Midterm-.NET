@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DAL;
+using DTO.Entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,7 +20,7 @@ namespace QuanlyOto
         }
         private void HomeForm_Load(object sender, EventArgs e)
         {
-
+            displayUI();
         }
 
         private void mnu_QuanLyBanHang_Click(object sender, EventArgs e)
@@ -37,6 +39,17 @@ namespace QuanlyOto
         {
             AdminForm admin = new AdminForm();
             admin.Show();
+        }
+
+
+
+        //display UI by account type
+        void displayUI()
+        {
+            if (!GlobalVariables.AccountTypes)
+                mnu_Admin.Enabled = false;
+            else
+                mnu_TTCN.Enabled = false;
         }
     }
 }

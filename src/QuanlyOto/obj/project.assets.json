@@ -2665,11 +2665,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\.NET\\Ex_TH\\src\\QuanlyOto\\QuanlyOto.csproj",
+      "projectUniqueName": "D:\\.NET\\MidTerm\\src\\QuanlyOto\\QuanlyOto.csproj",
       "projectName": "QuanlyOto",
-      "projectPath": "D:\\.NET\\Ex_TH\\src\\QuanlyOto\\QuanlyOto.csproj",
+      "projectPath": "D:\\.NET\\MidTerm\\src\\QuanlyOto\\QuanlyOto.csproj",
       "packagesPath": "C:\\Users\\kienl\\.nuget\\packages\\",
-      "outputPath": "D:\\.NET\\Ex_TH\\src\\QuanlyOto\\obj\\",
+      "outputPath": "D:\\.NET\\MidTerm\\src\\QuanlyOto\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kienl\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2686,11 +2686,11 @@
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
           "projectReferences": {
-            "D:\\.NET\\Ex_TH\\src\\DAL\\DAL.csproj": {
-              "projectPath": "D:\\.NET\\Ex_TH\\src\\DAL\\DAL.csproj"
+            "D:\\.NET\\MidTerm\\src\\DAL\\DAL.csproj": {
+              "projectPath": "D:\\.NET\\MidTerm\\src\\DAL\\DAL.csproj"
             },
-            "D:\\.NET\\Ex_TH\\src\\DTO\\DTO.csproj": {
-              "projectPath": "D:\\.NET\\Ex_TH\\src\\DTO\\DTO.csproj"
+            "D:\\.NET\\MidTerm\\src\\DTO\\DTO.csproj": {
+              "projectPath": "D:\\.NET\\MidTerm\\src\\DTO\\DTO.csproj"
             }
           }
         }

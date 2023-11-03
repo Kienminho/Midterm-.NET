@@ -12,3 +12,17 @@ D:\.NET\Ex_TH\src\DTO\obj\Debug\net7.0\refint\DTO.dll
 D:\.NET\Ex_TH\src\DTO\obj\Debug\net7.0\DTO.pdb
 D:\.NET\Ex_TH\src\DTO\obj\Debug\net7.0\DTO.genruntimeconfig.cache
 D:\.NET\Ex_TH\src\DTO\obj\Debug\net7.0\ref\DTO.dll
+D:\.NET\MidTerm\src\DTO\bin\Debug\net7.0\DTO.deps.json
+D:\.NET\MidTerm\src\DTO\bin\Debug\net7.0\DTO.runtimeconfig.json
+D:\.NET\MidTerm\src\DTO\bin\Debug\net7.0\DTO.dll
+D:\.NET\MidTerm\src\DTO\bin\Debug\net7.0\DTO.pdb
+D:\.NET\MidTerm\src\DTO\obj\Debug\net7.0\DTO.csproj.AssemblyReference.cache
+D:\.NET\MidTerm\src\DTO\obj\Debug\net7.0\DTO.GeneratedMSBuildEditorConfig.editorconfig
+D:\.NET\MidTerm\src\DTO\obj\Debug\net7.0\DTO.AssemblyInfoInputs.cache
+D:\.NET\MidTerm\src\DTO\obj\Debug\net7.0\DTO.AssemblyInfo.cs
+D:\.NET\MidTerm\src\DTO\obj\Debug\net7.0\DTO.csproj.CoreCompileInputs.cache
+D:\.NET\MidTerm\src\DTO\obj\Debug\net7.0\DTO.dll
+D:\.NET\MidTerm\src\DTO\obj\Debug\net7.0\refint\DTO.dll
+D:\.NET\MidTerm\src\DTO\obj\Debug\net7.0\DTO.pdb
+D:\.NET\MidTerm\src\DTO\obj\Debug\net7.0\DTO.genruntimeconfig.cache
+D:\.NET\MidTerm\src\DTO\obj\Debug\net7.0\ref\DTO.dll

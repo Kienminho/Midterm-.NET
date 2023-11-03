@@ -45,7 +45,7 @@
             label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(85, 110);
             label1.Name = "label1";
-            label1.Size = new Size(126, 25);
+            label1.Size = new Size(161, 29);
             label1.TabIndex = 0;
             label1.Text = "Số điện thoại";
             // 
@@ -57,7 +57,7 @@
             label2.ForeColor = SystemColors.ControlLightLight;
             label2.Location = new Point(85, 201);
             label2.Name = "label2";
-            label2.Size = new Size(97, 25);
+            label2.Size = new Size(121, 29);
             label2.TabIndex = 0;
             label2.Text = "Mật Khẩu";
             // 
@@ -80,6 +80,7 @@
             tbx_password.Size = new Size(317, 40);
             tbx_password.TabIndex = 1;
             tbx_password.UseWaitCursor = true;
+            tbx_password.KeyDown += tbx_password_KeyDown;
             // 
             // label3
             // 
@@ -89,7 +90,7 @@
             label3.ForeColor = SystemColors.ControlLightLight;
             label3.Location = new Point(162, 37);
             label3.Name = "label3";
-            label3.Size = new Size(280, 31);
+            label3.Size = new Size(352, 39);
             label3.TabIndex = 0;
             label3.Text = "Quản Lý Ô Tô by Kiên";
             // 
@@ -114,7 +115,7 @@
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(6F, 12F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
             BackgroundImage = Properties.Resources.hinh_nen_xe_oto_dep_1;
