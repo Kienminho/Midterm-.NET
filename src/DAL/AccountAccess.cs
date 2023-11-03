@@ -47,6 +47,7 @@ namespace DAL
            
             if (roles != null && roles.RoleName.Equals("ADMIN"))
                 GlobalVariables.AccountTypes = true;
+                
             else 
                 GlobalVariables.AccountTypes = false;
             

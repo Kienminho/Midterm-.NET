@@ -24,10 +24,12 @@ namespace QuanlyOto
                 .AddDbContext<EntityContext>(options => options.UseSqlServer(connectString))
                 .AddScoped<DataAccess>()
                 .AddScoped<AccountAccess>()
+                .AddScoped <CustomerAccess>()
                 .BuildServiceProvider();
 
             var accountAccess = serviceProvider.GetService<AccountAccess>();
-            var mainForm = new MainForm(accountAccess);
+            var customerAccess = serviceProvider.GetService<CustomerAccess>();
+            var mainForm = new MainForm(accountAccess, customerAccess);
 
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.

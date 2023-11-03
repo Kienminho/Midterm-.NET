@@ -14,9 +14,12 @@ namespace QuanlyOto
 {
     public partial class HomeForm : Form
     {
-        public HomeForm()
+        private readonly CustomerAccess customerAccess;
+
+        public HomeForm(CustomerAccess customerAccess)
         {
             InitializeComponent();
+            this.customerAccess = customerAccess;
         }
         private void HomeForm_Load(object sender, EventArgs e)
         {
@@ -25,7 +28,7 @@ namespace QuanlyOto
 
         private void mnu_QuanLyBanHang_Click(object sender, EventArgs e)
         {
-            CustomerForm khachHang = new CustomerForm();
+            CustomerForm khachHang = new CustomerForm(customerAccess);
             khachHang.Show();
         }
 

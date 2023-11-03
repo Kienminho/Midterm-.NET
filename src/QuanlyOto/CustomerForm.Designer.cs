@@ -28,283 +28,302 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tbx_Tim = new System.Windows.Forms.TextBox();
-            this.btn_tim = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tbx_thuexe = new System.Windows.Forms.TextBox();
-            this.tbx_diachi = new System.Windows.Forms.TextBox();
-            this.tbx_gioiTinh = new System.Windows.Forms.TextBox();
-            this.btx_SDT = new System.Windows.Forms.TextBox();
-            this.tbx_CMND = new System.Windows.Forms.TextBox();
-            this.tbx_Ten = new System.Windows.Forms.TextBox();
-            this.tbx_ID = new System.Windows.Forms.TextBox();
-            this.btn_them = new System.Windows.Forms.Button();
-            this.btn_sua = new System.Windows.Forms.Button();
-            this.btn_xoa = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.SuspendLayout();
+            label1 = new Label();
+            dgv_customer = new DataGridView();
+            tbx_Tim = new TextBox();
+            btn_tim = new Button();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label6 = new Label();
+            label8 = new Label();
+            tbx_thuexe = new TextBox();
+            tbx_diachi = new TextBox();
+            tbx_sdt = new TextBox();
+            tbx_Ten = new TextBox();
+            tbx_ID = new TextBox();
+            btn_them = new Button();
+            btn_sua = new Button();
+            btn_xoa = new Button();
+            tbx_gioiTinh = new TextBox();
+            label5 = new Label();
+            tbx_CMND = new TextBox();
+            label7 = new Label();
+            btn_reset = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgv_customer).BeginInit();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(357, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(205, 39);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Khách Hàng";
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(357, 24);
+            label1.Name = "label1";
+            label1.Size = new Size(163, 31);
+            label1.TabIndex = 0;
+            label1.Text = "Khách Hàng";
             // 
-            // dataGridView1
+            // dgv_customer
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(-65, 81);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(626, 479);
-            this.dataGridView1.TabIndex = 0;
+            dgv_customer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv_customer.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgv_customer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_customer.Location = new Point(-51, 86);
+            dgv_customer.Name = "dgv_customer";
+            dgv_customer.RowHeadersWidth = 51;
+            dgv_customer.RowTemplate.Height = 24;
+            dgv_customer.Size = new Size(736, 479);
+            dgv_customer.TabIndex = 0;
+            dgv_customer.CellContentClick += dgv_customer_CellContentClick;
             // 
             // tbx_Tim
             // 
-            this.tbx_Tim.Location = new System.Drawing.Point(592, 105);
-            this.tbx_Tim.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbx_Tim.Name = "tbx_Tim";
-            this.tbx_Tim.Size = new System.Drawing.Size(178, 26);
-            this.tbx_Tim.TabIndex = 1;
+            tbx_Tim.Location = new Point(729, 94);
+            tbx_Tim.Margin = new Padding(2);
+            tbx_Tim.Name = "tbx_Tim";
+            tbx_Tim.Size = new Size(178, 23);
+            tbx_Tim.TabIndex = 1;
             // 
             // btn_tim
             // 
-            this.btn_tim.Location = new System.Drawing.Point(813, 86);
-            this.btn_tim.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btn_tim.Name = "btn_tim";
-            this.btn_tim.Size = new System.Drawing.Size(110, 43);
-            this.btn_tim.TabIndex = 2;
-            this.btn_tim.Text = "Tìm kiếm";
-            this.btn_tim.UseVisualStyleBackColor = true;
+            btn_tim.Location = new Point(974, 86);
+            btn_tim.Margin = new Padding(2);
+            btn_tim.Name = "btn_tim";
+            btn_tim.Size = new Size(110, 43);
+            btn_tim.TabIndex = 2;
+            btn_tim.Text = "Tìm kiếm";
+            btn_tim.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(592, 161);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "ID :";
+            label2.AutoSize = true;
+            label2.Location = new Point(729, 161);
+            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(29, 17);
+            label2.TabIndex = 4;
+            label2.Text = "ID :";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(574, 452);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(184, 20);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Tiền Thuê Xe Mặc Định";
+            label3.AutoSize = true;
+            label3.Location = new Point(729, 452);
+            label3.Margin = new Padding(2, 0, 2, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(60, 17);
+            label3.TabIndex = 5;
+            label3.Text = "Phí thuê";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(592, 375);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 20);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Địa Chỉ :";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(592, 330);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 20);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Giới Tính :";
+            label4.AutoSize = true;
+            label4.Location = new Point(729, 381);
+            label4.Margin = new Padding(2, 0, 2, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(61, 17);
+            label4.TabIndex = 6;
+            label4.Text = "Địa Chỉ :";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(592, 282);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 20);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "SDT :";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(592, 242);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(70, 20);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "CMND :";
+            label6.AutoSize = true;
+            label6.Location = new Point(729, 282);
+            label6.Margin = new Padding(2, 0, 2, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(44, 17);
+            label6.TabIndex = 8;
+            label6.Text = "SDT :";
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(592, 201);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(144, 20);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "Tên Khách Hàng :";
+            label8.AutoSize = true;
+            label8.Location = new Point(729, 201);
+            label8.Margin = new Padding(2, 0, 2, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(123, 17);
+            label8.TabIndex = 10;
+            label8.Text = "Tên Khách Hàng :";
             // 
             // tbx_thuexe
             // 
-            this.tbx_thuexe.Location = new System.Drawing.Point(789, 448);
-            this.tbx_thuexe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbx_thuexe.Name = "tbx_thuexe";
-            this.tbx_thuexe.Size = new System.Drawing.Size(178, 26);
-            this.tbx_thuexe.TabIndex = 9;
+            tbx_thuexe.Location = new Point(906, 446);
+            tbx_thuexe.Margin = new Padding(2);
+            tbx_thuexe.Name = "tbx_thuexe";
+            tbx_thuexe.Size = new Size(178, 23);
+            tbx_thuexe.TabIndex = 9;
             // 
             // tbx_diachi
             // 
-            this.tbx_diachi.Location = new System.Drawing.Point(789, 375);
-            this.tbx_diachi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbx_diachi.Name = "tbx_diachi";
-            this.tbx_diachi.Size = new System.Drawing.Size(178, 26);
-            this.tbx_diachi.TabIndex = 8;
+            tbx_diachi.Location = new Point(906, 375);
+            tbx_diachi.Margin = new Padding(2);
+            tbx_diachi.Name = "tbx_diachi";
+            tbx_diachi.Size = new Size(178, 23);
+            tbx_diachi.TabIndex = 8;
             // 
-            // tbx_gioiTinh
+            // tbx_sdt
             // 
-            this.tbx_gioiTinh.Location = new System.Drawing.Point(789, 330);
-            this.tbx_gioiTinh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbx_gioiTinh.Name = "tbx_gioiTinh";
-            this.tbx_gioiTinh.Size = new System.Drawing.Size(178, 26);
-            this.tbx_gioiTinh.TabIndex = 7;
-            // 
-            // btx_SDT
-            // 
-            this.btx_SDT.Location = new System.Drawing.Point(789, 282);
-            this.btx_SDT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btx_SDT.Name = "btx_SDT";
-            this.btx_SDT.Size = new System.Drawing.Size(178, 26);
-            this.btx_SDT.TabIndex = 6;
-            // 
-            // tbx_CMND
-            // 
-            this.tbx_CMND.Location = new System.Drawing.Point(789, 242);
-            this.tbx_CMND.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbx_CMND.Name = "tbx_CMND";
-            this.tbx_CMND.Size = new System.Drawing.Size(178, 26);
-            this.tbx_CMND.TabIndex = 5;
+            tbx_sdt.Location = new Point(906, 282);
+            tbx_sdt.Margin = new Padding(2);
+            tbx_sdt.Name = "tbx_sdt";
+            tbx_sdt.Size = new Size(178, 23);
+            tbx_sdt.TabIndex = 6;
             // 
             // tbx_Ten
             // 
-            this.tbx_Ten.Location = new System.Drawing.Point(789, 201);
-            this.tbx_Ten.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbx_Ten.Name = "tbx_Ten";
-            this.tbx_Ten.Size = new System.Drawing.Size(178, 26);
-            this.tbx_Ten.TabIndex = 4;
+            tbx_Ten.Location = new Point(906, 195);
+            tbx_Ten.Margin = new Padding(2);
+            tbx_Ten.Name = "tbx_Ten";
+            tbx_Ten.Size = new Size(178, 23);
+            tbx_Ten.TabIndex = 4;
             // 
             // tbx_ID
             // 
-            this.tbx_ID.Location = new System.Drawing.Point(789, 157);
-            this.tbx_ID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbx_ID.Name = "tbx_ID";
-            this.tbx_ID.Size = new System.Drawing.Size(178, 26);
-            this.tbx_ID.TabIndex = 3;
+            tbx_ID.Location = new Point(906, 155);
+            tbx_ID.Margin = new Padding(2);
+            tbx_ID.Name = "tbx_ID";
+            tbx_ID.Size = new Size(178, 23);
+            tbx_ID.TabIndex = 3;
             // 
             // btn_them
             // 
-            this.btn_them.Location = new System.Drawing.Point(588, 500);
-            this.btn_them.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btn_them.Name = "btn_them";
-            this.btn_them.Size = new System.Drawing.Size(100, 28);
-            this.btn_them.TabIndex = 10;
-            this.btn_them.Text = "Thêm";
-            this.btn_them.UseVisualStyleBackColor = true;
+            btn_them.Location = new Point(752, 500);
+            btn_them.Margin = new Padding(2);
+            btn_them.Name = "btn_them";
+            btn_them.Size = new Size(100, 28);
+            btn_them.TabIndex = 10;
+            btn_them.Text = "Thêm";
+            btn_them.UseVisualStyleBackColor = true;
+            btn_them.Click += btn_them_Click;
             // 
             // btn_sua
             // 
-            this.btn_sua.Location = new System.Drawing.Point(738, 500);
-            this.btn_sua.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btn_sua.Name = "btn_sua";
-            this.btn_sua.Size = new System.Drawing.Size(100, 28);
-            this.btn_sua.TabIndex = 11;
-            this.btn_sua.Text = "Sửa";
-            this.btn_sua.UseVisualStyleBackColor = true;
+            btn_sua.Location = new Point(984, 500);
+            btn_sua.Margin = new Padding(2);
+            btn_sua.Name = "btn_sua";
+            btn_sua.Size = new Size(100, 28);
+            btn_sua.TabIndex = 11;
+            btn_sua.Text = "Sửa";
+            btn_sua.UseVisualStyleBackColor = true;
+            btn_sua.Click += btn_sua_Click;
             // 
             // btn_xoa
             // 
-            this.btn_xoa.Location = new System.Drawing.Point(882, 500);
-            this.btn_xoa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btn_xoa.Name = "btn_xoa";
-            this.btn_xoa.Size = new System.Drawing.Size(100, 28);
-            this.btn_xoa.TabIndex = 12;
-            this.btn_xoa.Text = "Xoá";
-            this.btn_xoa.UseVisualStyleBackColor = true;
+            btn_xoa.Location = new Point(752, 549);
+            btn_xoa.Margin = new Padding(2);
+            btn_xoa.Name = "btn_xoa";
+            btn_xoa.Size = new Size(100, 28);
+            btn_xoa.TabIndex = 12;
+            btn_xoa.Text = "Xoá";
+            btn_xoa.UseVisualStyleBackColor = true;
+            btn_xoa.Click += btn_xoa_Click;
             // 
-            // KhachHang
+            // tbx_gioiTinh
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 562);
-            this.Controls.Add(this.btn_xoa);
-            this.Controls.Add(this.btn_sua);
-            this.Controls.Add(this.btn_them);
-            this.Controls.Add(this.tbx_ID);
-            this.Controls.Add(this.tbx_Ten);
-            this.Controls.Add(this.tbx_CMND);
-            this.Controls.Add(this.btx_SDT);
-            this.Controls.Add(this.tbx_gioiTinh);
-            this.Controls.Add(this.tbx_diachi);
-            this.Controls.Add(this.tbx_thuexe);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.btn_tim);
-            this.Controls.Add(this.tbx_Tim);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "KhachHang";
-            this.Text = "CMND :";
-            this.Load += new System.EventHandler(this.Customer_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            tbx_gioiTinh.Location = new Point(906, 330);
+            tbx_gioiTinh.Margin = new Padding(2);
+            tbx_gioiTinh.Name = "tbx_gioiTinh";
+            tbx_gioiTinh.Size = new Size(178, 23);
+            tbx_gioiTinh.TabIndex = 7;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(729, 336);
+            label5.Margin = new Padding(2, 0, 2, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(73, 17);
+            label5.TabIndex = 7;
+            label5.Text = "Giới Tính :";
+            // 
+            // tbx_CMND
+            // 
+            tbx_CMND.Location = new Point(906, 242);
+            tbx_CMND.Margin = new Padding(2);
+            tbx_CMND.Name = "tbx_CMND";
+            tbx_CMND.Size = new Size(178, 23);
+            tbx_CMND.TabIndex = 5;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(729, 242);
+            label7.Margin = new Padding(2, 0, 2, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(56, 17);
+            label7.TabIndex = 9;
+            label7.Text = "CMND :";
+            // 
+            // btn_reset
+            // 
+            btn_reset.Location = new Point(984, 549);
+            btn_reset.Margin = new Padding(2);
+            btn_reset.Name = "btn_reset";
+            btn_reset.Size = new Size(100, 28);
+            btn_reset.TabIndex = 13;
+            btn_reset.Text = "Reset";
+            btn_reset.UseVisualStyleBackColor = true;
+            btn_reset.Click += btn_reset_Click;
+            // 
+            // CustomerForm
+            // 
+            AutoScaleDimensions = new SizeF(8F, 16F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1114, 613);
+            Controls.Add(btn_reset);
+            Controls.Add(btn_xoa);
+            Controls.Add(btn_sua);
+            Controls.Add(btn_them);
+            Controls.Add(tbx_ID);
+            Controls.Add(tbx_Ten);
+            Controls.Add(tbx_CMND);
+            Controls.Add(tbx_sdt);
+            Controls.Add(tbx_gioiTinh);
+            Controls.Add(tbx_diachi);
+            Controls.Add(tbx_thuexe);
+            Controls.Add(label8);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(btn_tim);
+            Controls.Add(tbx_Tim);
+            Controls.Add(dgv_customer);
+            Controls.Add(label1);
+            Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            Margin = new Padding(4);
+            Name = "CustomerForm";
+            Text = "CMND :";
+            Load += Customer_Load;
+            ((System.ComponentModel.ISupportInitialize)dgv_customer).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox tbx_Tim;
-        private System.Windows.Forms.Button btn_tim;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox tbx_thuexe;
-        private System.Windows.Forms.TextBox tbx_diachi;
-        private System.Windows.Forms.TextBox tbx_gioiTinh;
-        private System.Windows.Forms.TextBox btx_SDT;
-        private System.Windows.Forms.TextBox tbx_CMND;
-        private System.Windows.Forms.TextBox tbx_Ten;
-        private System.Windows.Forms.TextBox tbx_ID;
-        private System.Windows.Forms.Button btn_them;
-        private System.Windows.Forms.Button btn_sua;
-        private System.Windows.Forms.Button btn_xoa;
+        private Label label1;
+        private DataGridView dgv_customer;
+        private TextBox tbx_Tim;
+        private Button btn_tim;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label6;
+        private Label label8;
+        private TextBox tbx_thuexe;
+        private TextBox tbx_diachi;
+        private TextBox tbx_sdt;
+        private TextBox tbx_Ten;
+        private TextBox tbx_ID;
+        private Button btn_them;
+        private Button btn_sua;
+        private Button btn_xoa;
+        private TextBox tbx_gioiTinh;
+        private Label label5;
+        private TextBox tbx_CMND;
+        private Label label7;
+        private Button btn_reset;
     }
 }

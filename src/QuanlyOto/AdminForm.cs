@@ -6,5 +6,10 @@ namespace QuanlyOto
         {
             InitializeComponent();
         }
+
+        private void tbl_DoanhThu_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

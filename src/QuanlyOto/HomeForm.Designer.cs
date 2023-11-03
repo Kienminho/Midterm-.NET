@@ -68,14 +68,14 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { mnu_Admin, mnu_ThongTinTaiKhoan, mnu_QuanLyBanHang });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1067, 28);
+            menuStrip1.Size = new Size(1067, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
             // mnu_Admin
             // 
             mnu_Admin.Name = "mnu_Admin";
-            mnu_Admin.Size = new Size(67, 24);
+            mnu_Admin.Size = new Size(55, 20);
             mnu_Admin.Text = "Admin";
             mnu_Admin.Click += mnu_Admin_Click;
             // 
@@ -83,26 +83,26 @@
             // 
             mnu_ThongTinTaiKhoan.DropDownItems.AddRange(new ToolStripItem[] { mnu_TTCN, mnu_logOut });
             mnu_ThongTinTaiKhoan.Name = "mnu_ThongTinTaiKhoan";
-            mnu_ThongTinTaiKhoan.Size = new Size(151, 24);
+            mnu_ThongTinTaiKhoan.Size = new Size(122, 20);
             mnu_ThongTinTaiKhoan.Text = "Thông tin tài khoản";
             // 
             // mnu_TTCN
             // 
             mnu_TTCN.Name = "mnu_TTCN";
-            mnu_TTCN.Size = new Size(224, 26);
+            mnu_TTCN.Size = new Size(176, 22);
             mnu_TTCN.Text = "Thông Tin Cá Nhân";
             mnu_TTCN.Click += mnu_TTCN_Click;
             // 
             // mnu_logOut
             // 
             mnu_logOut.Name = "mnu_logOut";
-            mnu_logOut.Size = new Size(224, 26);
+            mnu_logOut.Size = new Size(176, 22);
             mnu_logOut.Text = "Đăng Xuất";
             // 
             // mnu_QuanLyBanHang
             // 
             mnu_QuanLyBanHang.Name = "mnu_QuanLyBanHang";
-            mnu_QuanLyBanHang.Size = new Size(159, 24);
+            mnu_QuanLyBanHang.Size = new Size(130, 20);
             mnu_QuanLyBanHang.Text = "Quản Lý Khách Hàng";
             mnu_QuanLyBanHang.Click += mnu_QuanLyBanHang_Click;
             // 
@@ -138,7 +138,7 @@
             label1.ForeColor = Color.Red;
             label1.Location = new Point(91, 66);
             label1.Name = "label1";
-            label1.Size = new Size(359, 37);
+            label1.Size = new Size(285, 30);
             label1.TabIndex = 6;
             label1.Text = "Cửa Hàng Cho Thuê Xe";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -160,7 +160,7 @@
             label2.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(568, 39);
             label2.Name = "label2";
-            label2.Size = new Size(192, 29);
+            label2.Size = new Size(154, 24);
             label2.TabIndex = 8;
             label2.Text = "Tên Khách Hàng";
             // 
@@ -171,7 +171,7 @@
             label3.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point);
             label3.Location = new Point(568, 96);
             label3.Name = "label3";
-            label3.Size = new Size(167, 29);
+            label3.Size = new Size(132, 24);
             label3.TabIndex = 9;
             label3.Text = "Số Ngày Thuê";
             // 
@@ -179,18 +179,18 @@
             // 
             nud_ngayThue.Location = new Point(747, 96);
             nud_ngayThue.Name = "nud_ngayThue";
-            nud_ngayThue.Size = new Size(63, 26);
+            nud_ngayThue.Size = new Size(63, 23);
             nud_ngayThue.TabIndex = 2;
             nud_ngayThue.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // lbx_tenKH
             // 
             lbx_tenKH.FormattingEnabled = true;
-            lbx_tenKH.ItemHeight = 20;
+            lbx_tenKH.ItemHeight = 16;
             lbx_tenKH.Items.AddRange(new object[] { "a", "b", "c" });
             lbx_tenKH.Location = new Point(783, 44);
             lbx_tenKH.Name = "lbx_tenKH";
-            lbx_tenKH.Size = new Size(165, 24);
+            lbx_tenKH.Size = new Size(165, 20);
             lbx_tenKH.TabIndex = 0;
             // 
             // btn_datXe
@@ -245,7 +245,7 @@
             label4.AutoSize = true;
             label4.Location = new Point(693, 509);
             label4.Name = "label4";
-            label4.Size = new Size(80, 20);
+            label4.Size = new Size(67, 17);
             label4.TabIndex = 17;
             label4.Text = "Giảm Giá";
             // 
@@ -254,7 +254,7 @@
             label5.AutoSize = true;
             label5.Location = new Point(800, 509);
             label5.Name = "label5";
-            label5.Size = new Size(78, 20);
+            label5.Size = new Size(68, 17);
             label5.TabIndex = 18;
             label5.Text = "Tổng tiền";
             // 
@@ -270,19 +270,19 @@
             // lbx_doiXe
             // 
             lbx_doiXe.FormattingEnabled = true;
-            lbx_doiXe.ItemHeight = 20;
+            lbx_doiXe.ItemHeight = 16;
             lbx_doiXe.Items.AddRange(new object[] { "a", "b", "c" });
             lbx_doiXe.Location = new Point(572, 552);
             lbx_doiXe.Name = "lbx_doiXe";
             lbx_doiXe.SelectionMode = SelectionMode.MultiExtended;
-            lbx_doiXe.Size = new Size(94, 24);
+            lbx_doiXe.Size = new Size(94, 20);
             lbx_doiXe.TabIndex = 6;
             // 
             // nud_GiamGia
             // 
             nud_GiamGia.Location = new Point(697, 548);
             nud_GiamGia.Name = "nud_GiamGia";
-            nud_GiamGia.Size = new Size(63, 26);
+            nud_GiamGia.Size = new Size(63, 23);
             nud_GiamGia.TabIndex = 7;
             nud_GiamGia.TextAlign = HorizontalAlignment.Center;
             // 
@@ -290,14 +290,14 @@
             // 
             tbx_TongTien.Location = new Point(804, 548);
             tbx_TongTien.Name = "tbx_TongTien";
-            tbx_TongTien.Size = new Size(108, 26);
+            tbx_TongTien.Size = new Size(108, 23);
             tbx_TongTien.TabIndex = 8;
             tbx_TongTien.Text = "0.00 VNĐ";
             tbx_TongTien.TextAlign = HorizontalAlignment.Right;
             // 
             // HomeForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 20F);
+            AutoScaleDimensions = new SizeF(8F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1067, 585);
             Controls.Add(tbx_TongTien);

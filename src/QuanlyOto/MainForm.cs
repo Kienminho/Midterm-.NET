@@ -17,10 +17,12 @@ namespace QuanlyOto
 
 
         private readonly AccountAccess _accountAccess;
-        public MainForm(AccountAccess accountAccess)
+        private readonly CustomerAccess _customerAccess;
+        public MainForm(AccountAccess accountAccess, CustomerAccess customerAccess)
         {
             _accountAccess = accountAccess;
             InitializeComponent();
+            _customerAccess = customerAccess;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -64,7 +66,7 @@ namespace QuanlyOto
             }
             else
             {
-                HomeForm homeForm = new HomeForm();
+                HomeForm homeForm = new HomeForm(_customerAccess);
                 this.Hide();
                 homeForm.Show();
             }

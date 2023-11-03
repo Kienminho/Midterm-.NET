@@ -14,8 +14,8 @@ namespace DTO.Entity
         public string PhoneNumber { get; set; }
 
         //relationshop one to many with entity bookings
-        public virtual ICollection<Booking> Bookings { get; set; }
-        public virtual ICollection<Schedule> Schedules { get; set; }
+        public virtual ICollection<Booking>? Bookings { get; set; }
+        public virtual ICollection<Schedule>? Schedules { get; set; }
 
     }
 }
