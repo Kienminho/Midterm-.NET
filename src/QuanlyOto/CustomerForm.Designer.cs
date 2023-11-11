@@ -45,19 +45,20 @@
             btn_them = new Button();
             btn_sua = new Button();
             btn_xoa = new Button();
-            tbx_gioiTinh = new TextBox();
             label5 = new Label();
             tbx_CMND = new TextBox();
             label7 = new Label();
             btn_reset = new Button();
+            cb_gender = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgv_customer).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(357, 24);
+            label1.Location = new Point(480, 22);
             label1.Name = "label1";
             label1.Size = new Size(163, 31);
             label1.TabIndex = 0;
@@ -65,19 +66,21 @@
             // 
             // dgv_customer
             // 
-            dgv_customer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv_customer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgv_customer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_customer.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgv_customer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_customer.Location = new Point(-51, 86);
             dgv_customer.Name = "dgv_customer";
             dgv_customer.RowHeadersWidth = 51;
-            dgv_customer.RowTemplate.Height = 24;
+            dgv_customer.RowTemplate.Height = 30;
             dgv_customer.Size = new Size(736, 479);
             dgv_customer.TabIndex = 0;
             dgv_customer.CellContentClick += dgv_customer_CellContentClick;
             // 
             // tbx_Tim
             // 
+            tbx_Tim.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             tbx_Tim.Location = new Point(729, 94);
             tbx_Tim.Margin = new Padding(2);
             tbx_Tim.Name = "tbx_Tim";
@@ -86,16 +89,18 @@
             // 
             // btn_tim
             // 
-            btn_tim.Location = new Point(974, 86);
+            btn_tim.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btn_tim.Location = new Point(974, 88);
             btn_tim.Margin = new Padding(2);
             btn_tim.Name = "btn_tim";
-            btn_tim.Size = new Size(110, 43);
+            btn_tim.Size = new Size(110, 34);
             btn_tim.TabIndex = 2;
             btn_tim.Text = "Tìm kiếm";
             btn_tim.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Location = new Point(729, 161);
             label2.Margin = new Padding(2, 0, 2, 0);
@@ -106,6 +111,7 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.Location = new Point(729, 452);
             label3.Margin = new Padding(2, 0, 2, 0);
@@ -116,6 +122,7 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label4.AutoSize = true;
             label4.Location = new Point(729, 381);
             label4.Margin = new Padding(2, 0, 2, 0);
@@ -126,6 +133,7 @@
             // 
             // label6
             // 
+            label6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label6.AutoSize = true;
             label6.Location = new Point(729, 282);
             label6.Margin = new Padding(2, 0, 2, 0);
@@ -136,6 +144,7 @@
             // 
             // label8
             // 
+            label8.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label8.AutoSize = true;
             label8.Location = new Point(729, 201);
             label8.Margin = new Padding(2, 0, 2, 0);
@@ -146,6 +155,7 @@
             // 
             // tbx_thuexe
             // 
+            tbx_thuexe.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             tbx_thuexe.Location = new Point(906, 446);
             tbx_thuexe.Margin = new Padding(2);
             tbx_thuexe.Name = "tbx_thuexe";
@@ -154,6 +164,7 @@
             // 
             // tbx_diachi
             // 
+            tbx_diachi.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             tbx_diachi.Location = new Point(906, 375);
             tbx_diachi.Margin = new Padding(2);
             tbx_diachi.Name = "tbx_diachi";
@@ -162,6 +173,7 @@
             // 
             // tbx_sdt
             // 
+            tbx_sdt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             tbx_sdt.Location = new Point(906, 282);
             tbx_sdt.Margin = new Padding(2);
             tbx_sdt.Name = "tbx_sdt";
@@ -170,6 +182,7 @@
             // 
             // tbx_Ten
             // 
+            tbx_Ten.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             tbx_Ten.Location = new Point(906, 195);
             tbx_Ten.Margin = new Padding(2);
             tbx_Ten.Name = "tbx_Ten";
@@ -178,6 +191,7 @@
             // 
             // tbx_ID
             // 
+            tbx_ID.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             tbx_ID.Location = new Point(906, 155);
             tbx_ID.Margin = new Padding(2);
             tbx_ID.Name = "tbx_ID";
@@ -186,6 +200,7 @@
             // 
             // btn_them
             // 
+            btn_them.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_them.Location = new Point(752, 500);
             btn_them.Margin = new Padding(2);
             btn_them.Name = "btn_them";
@@ -197,6 +212,7 @@
             // 
             // btn_sua
             // 
+            btn_sua.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_sua.Location = new Point(984, 500);
             btn_sua.Margin = new Padding(2);
             btn_sua.Name = "btn_sua";
@@ -208,6 +224,7 @@
             // 
             // btn_xoa
             // 
+            btn_xoa.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_xoa.Location = new Point(752, 549);
             btn_xoa.Margin = new Padding(2);
             btn_xoa.Name = "btn_xoa";
@@ -217,16 +234,9 @@
             btn_xoa.UseVisualStyleBackColor = true;
             btn_xoa.Click += btn_xoa_Click;
             // 
-            // tbx_gioiTinh
-            // 
-            tbx_gioiTinh.Location = new Point(906, 330);
-            tbx_gioiTinh.Margin = new Padding(2);
-            tbx_gioiTinh.Name = "tbx_gioiTinh";
-            tbx_gioiTinh.Size = new Size(178, 23);
-            tbx_gioiTinh.TabIndex = 7;
-            // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label5.AutoSize = true;
             label5.Location = new Point(729, 336);
             label5.Margin = new Padding(2, 0, 2, 0);
@@ -237,6 +247,7 @@
             // 
             // tbx_CMND
             // 
+            tbx_CMND.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             tbx_CMND.Location = new Point(906, 242);
             tbx_CMND.Margin = new Padding(2);
             tbx_CMND.Name = "tbx_CMND";
@@ -245,6 +256,7 @@
             // 
             // label7
             // 
+            label7.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label7.AutoSize = true;
             label7.Location = new Point(729, 242);
             label7.Margin = new Padding(2, 0, 2, 0);
@@ -255,6 +267,7 @@
             // 
             // btn_reset
             // 
+            btn_reset.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_reset.Location = new Point(984, 549);
             btn_reset.Margin = new Padding(2);
             btn_reset.Name = "btn_reset";
@@ -264,11 +277,23 @@
             btn_reset.UseVisualStyleBackColor = true;
             btn_reset.Click += btn_reset_Click;
             // 
+            // cb_gender
+            // 
+            cb_gender.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cb_gender.FormattingEnabled = true;
+            cb_gender.Items.AddRange(new object[] { "Nam", "Nữ" });
+            cb_gender.Location = new Point(906, 329);
+            cb_gender.Name = "cb_gender";
+            cb_gender.Size = new Size(178, 24);
+            cb_gender.TabIndex = 14;
+            cb_gender.Text = "Chọn giới tính";
+            // 
             // CustomerForm
             // 
             AutoScaleDimensions = new SizeF(8F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1114, 613);
+            Controls.Add(cb_gender);
             Controls.Add(btn_reset);
             Controls.Add(btn_xoa);
             Controls.Add(btn_sua);
@@ -277,7 +302,6 @@
             Controls.Add(tbx_Ten);
             Controls.Add(tbx_CMND);
             Controls.Add(tbx_sdt);
-            Controls.Add(tbx_gioiTinh);
             Controls.Add(tbx_diachi);
             Controls.Add(tbx_thuexe);
             Controls.Add(label8);
@@ -294,7 +318,7 @@
             Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(4);
             Name = "CustomerForm";
-            Text = "CMND :";
+            Text = "Khách hàng";
             Load += Customer_Load;
             ((System.ComponentModel.ISupportInitialize)dgv_customer).EndInit();
             ResumeLayout(false);
@@ -320,10 +344,10 @@
         private Button btn_them;
         private Button btn_sua;
         private Button btn_xoa;
-        private TextBox tbx_gioiTinh;
         private Label label5;
         private TextBox tbx_CMND;
         private Label label7;
         private Button btn_reset;
+        private ComboBox cb_gender;
     }
 }

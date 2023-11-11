@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DTO.Migrations
 {
     [DbContext(typeof(EntityContext))]
-    [Migration("20231031082802_init")]
+    [Migration("20231104165430_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -55,6 +55,14 @@ namespace DTO.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("gender")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -144,6 +152,10 @@ namespace DTO.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Gender")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

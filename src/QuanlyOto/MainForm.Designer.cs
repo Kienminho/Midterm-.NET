@@ -43,9 +43,9 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(85, 110);
+            label1.Location = new Point(86, 119);
             label1.Name = "label1";
-            label1.Size = new Size(161, 29);
+            label1.Size = new Size(126, 25);
             label1.TabIndex = 0;
             label1.Text = "Số điện thoại";
             // 
@@ -55,29 +55,29 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = SystemColors.ControlLightLight;
-            label2.Location = new Point(85, 201);
+            label2.Location = new Point(86, 218);
             label2.Name = "label2";
-            label2.Size = new Size(121, 29);
+            label2.Size = new Size(97, 25);
             label2.TabIndex = 0;
             label2.Text = "Mật Khẩu";
             // 
             // tbx_phonenumber
             // 
             tbx_phonenumber.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            tbx_phonenumber.Location = new Point(300, 95);
+            tbx_phonenumber.Location = new Point(300, 102);
             tbx_phonenumber.Multiline = true;
             tbx_phonenumber.Name = "tbx_phonenumber";
-            tbx_phonenumber.Size = new Size(317, 40);
+            tbx_phonenumber.Size = new Size(318, 43);
             tbx_phonenumber.TabIndex = 0;
             // 
             // tbx_password
             // 
             tbx_password.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            tbx_password.Location = new Point(300, 186);
+            tbx_password.Location = new Point(300, 200);
             tbx_password.Multiline = true;
             tbx_password.Name = "tbx_password";
             tbx_password.PasswordChar = '*';
-            tbx_password.Size = new Size(317, 40);
+            tbx_password.Size = new Size(318, 43);
             tbx_password.TabIndex = 1;
             tbx_password.UseWaitCursor = true;
             tbx_password.KeyDown += tbx_password_KeyDown;
@@ -88,17 +88,17 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = SystemColors.ControlLightLight;
-            label3.Location = new Point(162, 37);
+            label3.Location = new Point(162, 41);
             label3.Name = "label3";
-            label3.Size = new Size(352, 39);
+            label3.Size = new Size(280, 31);
             label3.TabIndex = 0;
             label3.Text = "Quản Lý Ô Tô by Kiên";
             // 
             // btn_login
             // 
-            btn_login.Location = new Point(207, 259);
+            btn_login.Location = new Point(207, 281);
             btn_login.Name = "btn_login";
-            btn_login.Size = new Size(144, 45);
+            btn_login.Size = new Size(144, 49);
             btn_login.TabIndex = 2;
             btn_login.Text = "Đăng Nhập";
             btn_login.UseVisualStyleBackColor = true;
@@ -106,21 +106,21 @@
             // 
             // btn_exit
             // 
-            btn_exit.Location = new Point(519, 259);
+            btn_exit.Location = new Point(519, 281);
             btn_exit.Name = "btn_exit";
-            btn_exit.Size = new Size(144, 45);
+            btn_exit.Size = new Size(144, 49);
             btn_exit.TabIndex = 3;
             btn_exit.Text = "Thoát";
             btn_exit.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
             BackgroundImage = Properties.Resources.hinh_nen_xe_oto_dep_1;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(792, 472);
+            ClientSize = new Size(792, 510);
             Controls.Add(btn_exit);
             Controls.Add(btn_login);
             Controls.Add(label3);
@@ -128,7 +128,7 @@
             Controls.Add(tbx_phonenumber);
             Controls.Add(label2);
             Controls.Add(label1);
-            Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Regular, GraphicsUnit.Point);
+            Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point);
             Name = "MainForm";
             Text = "Quản Lý Ô Tô Cho Thuê";
             Load += Form1_Load;

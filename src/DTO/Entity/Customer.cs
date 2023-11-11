@@ -12,6 +12,7 @@ namespace DTO.Entity
         public string FullName { get; set; }
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
+        public string Gender { get; set; }
 
         //relationshop one to many with entity bookings
         public virtual ICollection<Booking>? Bookings { get; set; }

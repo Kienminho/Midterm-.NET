@@ -40,6 +40,14 @@ namespace QuanlyOto
                 string name = tbx_Ten.Text;
                 string numberPhone = tbx_sdt.Text;
                 string address = tbx_diachi.Text;
+                string gender = cb_gender.GetItemText(cb_gender.SelectedItem).ToString();
+
+                if (id.Equals("") || name.Equals("") || numberPhone.Equals("") || address.Equals("") || gender.Equals(""))
+                {
+                    MessageBox.Show("Cần nhập đủ thông tin nhân viên, để cập nhật.");
+                    return;
+                }
+
 
                 Customer customer = new Customer
                 {
@@ -47,6 +55,7 @@ namespace QuanlyOto
                     FullName = name,
                     PhoneNumber = numberPhone,
                     Address = address,
+                    Gender = gender
                 };
                 bool isUpdated = await _customerAccess.updateCustomer(customer);
 
@@ -68,14 +77,15 @@ namespace QuanlyOto
                 string name = tbx_Ten.Text;
                 string numberPhone = tbx_sdt.Text;
                 string address = tbx_diachi.Text;
+                string gender = cb_gender.GetItemText(cb_gender.SelectedIndex);
 
-                if (name.Equals("") || numberPhone.Equals("") || address.Equals(""))
+                if (name.Equals("") || numberPhone.Equals("") || address.Equals("") || gender.Equals(""))
                 {
                     MessageBox.Show("Cần nhập đủ thông tin nhân viên.");
                     return;
                 }
 
-                var newCustomer = await _customerAccess.addCustomer(name, numberPhone, address);
+                var newCustomer = await _customerAccess.addCustomer(name, numberPhone, address, gender);
                 customers.Add(newCustomer);
                 cleanData();
                 dgv_customer.Refresh();
@@ -159,8 +169,9 @@ namespace QuanlyOto
             tbx_Ten.Text = "";
             tbx_sdt.Text = "";
             tbx_diachi.Text = "";
+            cb_gender.SelectedIndex = -1;
         }
 
-        
+
     }
 }

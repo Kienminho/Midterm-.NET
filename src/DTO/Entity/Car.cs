@@ -18,7 +18,7 @@ namespace DTO.Entity
         public double RentalFee { get; set; }
 
         //relationship one to many with entity Booking
-        public virtual ICollection<Booking> Bookings { get; set; }
-        public virtual ICollection<Schedule> Schedules { get; set; }
+        public virtual ICollection<Booking>? Bookings { get; set; }
+        public virtual ICollection<Schedule>? Schedules { get; set; }
     }
 }

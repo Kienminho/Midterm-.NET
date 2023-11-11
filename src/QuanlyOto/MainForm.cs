@@ -37,7 +37,7 @@ namespace QuanlyOto
 
         private void tbx_password_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 handleLogin();
             }

@@ -126,3 +126,4 @@ D:\.NET\MidTerm\src\QuanlyOto\obj\Debug\net7.0-windows\refint\QuanlyOto.dll
 D:\.NET\MidTerm\src\QuanlyOto\obj\Debug\net7.0-windows\QuanlyOto.pdb
 D:\.NET\MidTerm\src\QuanlyOto\obj\Debug\net7.0-windows\QuanlyOto.genruntimeconfig.cache
 D:\.NET\MidTerm\src\QuanlyOto\obj\Debug\net7.0-windows\ref\QuanlyOto.dll
+D:\.NET\MidTerm\src\QuanlyOto\obj\Debug\net7.0-windows\QuanlyOto.uControl_carItems.resources

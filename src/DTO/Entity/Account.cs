@@ -14,6 +14,9 @@ namespace DTO.Entity
         public string FullName { get; set; }
         public string Password { get; set; }
 
+        public string gender { get; set; }
+        public string address { get; set; }
+
         public virtual ICollection<Role> Roles { get; set; }
 
     }

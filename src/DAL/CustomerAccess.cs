@@ -21,7 +21,8 @@ namespace DAL
                             CustomerId = customer.CustomerId,
                             FullName = customer.FullName,
                             PhoneNumber = customer.PhoneNumber,
-                            Address = customer.Address
+                            Address = customer.Address,
+                            Gender = customer.Gender,
                         };
 
             var list = await query.ToListAsync();
@@ -42,14 +43,16 @@ namespace DAL
         }
 
         //add customer
-        public async Task<Customer> addCustomer(string name, string phoneNumber, string address) {
+        public async Task<Customer> addCustomer(string name, string phoneNumber, string address, string gender) {
             Guid customerId = Guid.NewGuid();
             Customer newCustomer = new Customer
             {
                 CustomerId=customerId,
                 FullName=name,
                 Address = address,
-                PhoneNumber=phoneNumber
+                PhoneNumber=phoneNumber,
+                Gender=gender
+            
             };
              _dataAccess.Repository<Customer>().Add(newCustomer);
             await _dataAccess.SaveChangesAsync();
@@ -66,6 +69,7 @@ namespace DAL
             existCustomer.FullName = customer.FullName;
             existCustomer.Address = customer.Address;
             existCustomer.PhoneNumber = customer.PhoneNumber;
+            existCustomer.Gender = customer.Gender;
 
             var res = await _dataAccess.SaveChangesAsync();
             return res > 0;
