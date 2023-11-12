@@ -18,11 +18,20 @@ namespace QuanlyOto
 
         private readonly AccountAccess _accountAccess;
         private readonly CustomerAccess _customerAccess;
-        public MainForm(AccountAccess accountAccess, CustomerAccess customerAccess)
+        private readonly ActionAccess _actionAccess;
+        private readonly CarAccess _carAccess;
+        private readonly BookingsAccess _bookingsAccess;
+        private readonly SchedulesAccess _scheduleAccess;
+        public MainForm(AccountAccess accountAccess, CustomerAccess customerAccess, ActionAccess actionAccess, 
+            CarAccess carAccess, BookingsAccess bookingsAccess, SchedulesAccess scheduleAccess)
         {
-            _accountAccess = accountAccess;
             InitializeComponent();
+            _accountAccess = accountAccess;
             _customerAccess = customerAccess;
+            _actionAccess = actionAccess;
+            _carAccess = carAccess;
+            _bookingsAccess = bookingsAccess;
+            _scheduleAccess = scheduleAccess;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -66,7 +75,7 @@ namespace QuanlyOto
             }
             else
             {
-                HomeForm homeForm = new HomeForm(_customerAccess);
+                HomeForm homeForm = new HomeForm(_customerAccess, _accountAccess, _actionAccess, _carAccess, _bookingsAccess, _scheduleAccess);
                 this.Hide();
                 homeForm.Show();
             }

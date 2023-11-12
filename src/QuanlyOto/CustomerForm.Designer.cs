@@ -30,14 +30,12 @@
         {
             label1 = new Label();
             dgv_customer = new DataGridView();
-            tbx_Tim = new TextBox();
-            btn_tim = new Button();
+            tbx_search = new TextBox();
+            btn_search = new Button();
             label2 = new Label();
-            label3 = new Label();
             label4 = new Label();
             label6 = new Label();
             label8 = new Label();
-            tbx_thuexe = new TextBox();
             tbx_diachi = new TextBox();
             tbx_sdt = new TextBox();
             tbx_Ten = new TextBox();
@@ -50,6 +48,7 @@
             label7 = new Label();
             btn_reset = new Button();
             cb_gender = new ComboBox();
+            btn_export = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv_customer).BeginInit();
             SuspendLayout();
             // 
@@ -70,7 +69,7 @@
             dgv_customer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_customer.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgv_customer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_customer.Location = new Point(-51, 86);
+            dgv_customer.Location = new Point(-45, 88);
             dgv_customer.Name = "dgv_customer";
             dgv_customer.RowHeadersWidth = 51;
             dgv_customer.RowTemplate.Height = 30;
@@ -78,25 +77,26 @@
             dgv_customer.TabIndex = 0;
             dgv_customer.CellContentClick += dgv_customer_CellContentClick;
             // 
-            // tbx_Tim
+            // tbx_search
             // 
-            tbx_Tim.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            tbx_Tim.Location = new Point(729, 94);
-            tbx_Tim.Margin = new Padding(2);
-            tbx_Tim.Name = "tbx_Tim";
-            tbx_Tim.Size = new Size(178, 23);
-            tbx_Tim.TabIndex = 1;
+            tbx_search.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            tbx_search.Location = new Point(729, 94);
+            tbx_search.Margin = new Padding(2);
+            tbx_search.Name = "tbx_search";
+            tbx_search.Size = new Size(178, 23);
+            tbx_search.TabIndex = 1;
             // 
-            // btn_tim
+            // btn_search
             // 
-            btn_tim.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btn_tim.Location = new Point(974, 88);
-            btn_tim.Margin = new Padding(2);
-            btn_tim.Name = "btn_tim";
-            btn_tim.Size = new Size(110, 34);
-            btn_tim.TabIndex = 2;
-            btn_tim.Text = "Tìm kiếm";
-            btn_tim.UseVisualStyleBackColor = true;
+            btn_search.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btn_search.Location = new Point(974, 88);
+            btn_search.Margin = new Padding(2);
+            btn_search.Name = "btn_search";
+            btn_search.Size = new Size(110, 34);
+            btn_search.TabIndex = 2;
+            btn_search.Text = "Tìm kiếm";
+            btn_search.UseVisualStyleBackColor = true;
+            btn_search.Click += btn_search_Click;
             // 
             // label2
             // 
@@ -108,17 +108,6 @@
             label2.Size = new Size(29, 17);
             label2.TabIndex = 4;
             label2.Text = "ID :";
-            // 
-            // label3
-            // 
-            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label3.AutoSize = true;
-            label3.Location = new Point(729, 452);
-            label3.Margin = new Padding(2, 0, 2, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(60, 17);
-            label3.TabIndex = 5;
-            label3.Text = "Phí thuê";
             // 
             // label4
             // 
@@ -152,15 +141,6 @@
             label8.Size = new Size(123, 17);
             label8.TabIndex = 10;
             label8.Text = "Tên Khách Hàng :";
-            // 
-            // tbx_thuexe
-            // 
-            tbx_thuexe.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            tbx_thuexe.Location = new Point(906, 446);
-            tbx_thuexe.Margin = new Padding(2);
-            tbx_thuexe.Name = "tbx_thuexe";
-            tbx_thuexe.Size = new Size(178, 23);
-            tbx_thuexe.TabIndex = 9;
             // 
             // tbx_diachi
             // 
@@ -201,7 +181,7 @@
             // btn_them
             // 
             btn_them.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btn_them.Location = new Point(752, 500);
+            btn_them.Location = new Point(729, 467);
             btn_them.Margin = new Padding(2);
             btn_them.Name = "btn_them";
             btn_them.Size = new Size(100, 28);
@@ -213,7 +193,7 @@
             // btn_sua
             // 
             btn_sua.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btn_sua.Location = new Point(984, 500);
+            btn_sua.Location = new Point(877, 467);
             btn_sua.Margin = new Padding(2);
             btn_sua.Name = "btn_sua";
             btn_sua.Size = new Size(100, 28);
@@ -225,7 +205,7 @@
             // btn_xoa
             // 
             btn_xoa.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btn_xoa.Location = new Point(752, 549);
+            btn_xoa.Location = new Point(1003, 467);
             btn_xoa.Margin = new Padding(2);
             btn_xoa.Name = "btn_xoa";
             btn_xoa.Size = new Size(100, 28);
@@ -268,7 +248,7 @@
             // btn_reset
             // 
             btn_reset.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btn_reset.Location = new Point(984, 549);
+            btn_reset.Location = new Point(729, 539);
             btn_reset.Margin = new Padding(2);
             btn_reset.Name = "btn_reset";
             btn_reset.Size = new Size(100, 28);
@@ -288,11 +268,24 @@
             cb_gender.TabIndex = 14;
             cb_gender.Text = "Chọn giới tính";
             // 
+            // btn_export
+            // 
+            btn_export.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_export.Location = new Point(877, 539);
+            btn_export.Margin = new Padding(2);
+            btn_export.Name = "btn_export";
+            btn_export.Size = new Size(100, 28);
+            btn_export.TabIndex = 15;
+            btn_export.Text = "Xuất dữ liệu";
+            btn_export.UseVisualStyleBackColor = true;
+            btn_export.Click += btn_export_Click;
+            // 
             // CustomerForm
             // 
             AutoScaleDimensions = new SizeF(8F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1114, 613);
+            Controls.Add(btn_export);
             Controls.Add(cb_gender);
             Controls.Add(btn_reset);
             Controls.Add(btn_xoa);
@@ -303,16 +296,14 @@
             Controls.Add(tbx_CMND);
             Controls.Add(tbx_sdt);
             Controls.Add(tbx_diachi);
-            Controls.Add(tbx_thuexe);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
-            Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(btn_tim);
-            Controls.Add(tbx_Tim);
+            Controls.Add(btn_search);
+            Controls.Add(tbx_search);
             Controls.Add(dgv_customer);
             Controls.Add(label1);
             Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
@@ -329,14 +320,12 @@
 
         private Label label1;
         private DataGridView dgv_customer;
-        private TextBox tbx_Tim;
-        private Button btn_tim;
+        private TextBox tbx_search;
+        private Button btn_search;
         private Label label2;
-        private Label label3;
         private Label label4;
         private Label label6;
         private Label label8;
-        private TextBox tbx_thuexe;
         private TextBox tbx_diachi;
         private TextBox tbx_sdt;
         private TextBox tbx_Ten;
@@ -349,5 +338,6 @@
         private Label label7;
         private Button btn_reset;
         private ComboBox cb_gender;
+        private Button btn_export;
     }
 }

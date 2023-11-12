@@ -11,6 +11,7 @@
   <ItemGroup>
     <PackageReference Include="EPPlus" Version="7.0.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="OxyPlot.WindowsForms" Version="2.1.2" />
   </ItemGroup>
 
   <ItemGroup>

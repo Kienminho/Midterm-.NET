@@ -25,16 +25,24 @@ namespace QuanlyOto
                 .AddScoped<DataAccess>()
                 .AddScoped<AccountAccess>()
                 .AddScoped <CustomerAccess>()
+                .AddScoped<ActionAccess>()
+                .AddScoped<CarAccess>()
+                .AddScoped<BookingsAccess>()
+                .AddScoped<SchedulesAccess>()
                 .BuildServiceProvider();
 
             var accountAccess = serviceProvider.GetService<AccountAccess>();
             var customerAccess = serviceProvider.GetService<CustomerAccess>();
-            var mainForm = new MainForm(accountAccess, customerAccess);
-
+            var actionAccess = serviceProvider.GetService<ActionAccess>();
+            var carAccess = serviceProvider.GetService<CarAccess>();
+            var bookingAccess = serviceProvider.GetService<BookingsAccess>();
+            var schedulesAccess = serviceProvider.GetService<SchedulesAccess>();
+            //var mainForm = new MainForm(accountAccess, customerAccess, actionAccess, carAccess, bookingAccess, schedulesAccess);
+            var homeForm = new HomeForm(customerAccess, accountAccess, actionAccess, carAccess, bookingAccess, schedulesAccess);
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             
-            Application.Run(mainForm);
+            Application.Run(homeForm);
         }
     }
 

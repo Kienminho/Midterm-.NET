@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DTO.Entity
+﻿namespace DTO.Entity
 {
     public class Booking
     {
@@ -24,15 +17,10 @@ namespace DTO.Entity
         public String Status { get; set; }
 
         //relationship one to many with entity Car
-        public int CardId { get; set; }
         public virtual Car Car { get; set; }
 
         //relationship one to many with entity Customer
-        public int CustomerId { get; set; }
         public virtual Customer Customer { get; set; }
-
-
-
 
     }
 }

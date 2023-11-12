@@ -9,20 +9,23 @@ namespace QuanlyOto
     public partial class CustomerForm : Form
     {
         private readonly CustomerAccess _customerAccess;
+        private readonly ActionAccess _actionAccess;
         private BindingList<Customer> customers;
         private DataGridViewRow rowSelected = null;
 
 
-        public CustomerForm(CustomerAccess customerAccess)
+        public CustomerForm(CustomerAccess customerAccess, ActionAccess actionAccess)
         {
             InitializeComponent();
             _customerAccess = customerAccess;
+            _actionAccess = actionAccess;
 
 
         }
+
         private async void Customer_Load(object sender, EventArgs e)
         {
-            var list = await _customerAccess.getListCustomer();
+            List<Customer> list = await _customerAccess.GetCustomers();
             customers = new BindingList<Customer>(list);
             dgv_customer.DataSource = customers;
 
@@ -33,7 +36,7 @@ namespace QuanlyOto
         private async void btn_sua_Click(object sender, EventArgs e)
         {
             //dialog confim 
-            DialogResult res = DialogConfirm.ConfirmUpdate();
+            DialogResult res = Commons.ConfirmUpdate();
             if (res == DialogResult.OK)
             {
                 Guid id = new Guid(tbx_ID.Text);
@@ -53,10 +56,12 @@ namespace QuanlyOto
                 {
                     CustomerId = id,
                     FullName = name,
-                    PhoneNumber = numberPhone,
                     Address = address,
+                    PhoneNumber = numberPhone,
                     Gender = gender
+
                 };
+
                 bool isUpdated = await _customerAccess.updateCustomer(customer);
 
                 if (isUpdated)
@@ -71,13 +76,13 @@ namespace QuanlyOto
 
         private async void btn_them_Click(object sender, EventArgs e)
         {
-            DialogResult res = DialogConfirm.ConfirmAdd();
+            DialogResult res = Commons.ConfirmAdd();
             if (res == DialogResult.OK)
             {
                 string name = tbx_Ten.Text;
                 string numberPhone = tbx_sdt.Text;
                 string address = tbx_diachi.Text;
-                string gender = cb_gender.GetItemText(cb_gender.SelectedIndex);
+                string gender = cb_gender.GetItemText(cb_gender.SelectedItem).ToString();
 
                 if (name.Equals("") || numberPhone.Equals("") || address.Equals("") || gender.Equals(""))
                 {
@@ -109,12 +114,11 @@ namespace QuanlyOto
         }
 
         // Declare a BindingList field
-
         private async void btn_xoa_Click(object sender, EventArgs e)
         {
             //display box confirm deleted
             //DialogResult res = MessageBox.Show("Bạn có chắc chắn muốn xoá", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            DialogResult res = DialogConfirm.ConfirmDelete();
+            DialogResult res = Commons.ConfirmDelete();
             if (res == DialogResult.OK)
             {
                 if (rowSelected != null)
@@ -140,19 +144,26 @@ namespace QuanlyOto
                     MessageBox.Show("Vui lòng chọn một hàng để xoá.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
         }
 
-
         // load data gird view
-        private async Task LoadCustomersAsync()
+        private async Task LoadCustomersAsync(string keywords = null)
         {
+            var customers = new List<Customer>();
+            // Reload data into the DataGridView
+            if (keywords != null)
+                customers = await GCustomers(keywords);
+            else
+                customers = await GCustomers(); // Replace with your method to get customers
+            if (customers.Count == 0)
+            {
+                MessageBox.Show("Không tìm thấy khách hàng phù hợp");
+                return;
+            }
+
             // Assuming dgv_customers is the name of your DataGridView
             dgv_customer.DataSource = null;
             dgv_customer.Rows.Clear();
-
-            // Reload data into the DataGridView
-            var customers = await _customerAccess.getListCustomer(); // Replace with your method to get customers
             dgv_customer.DataSource = customers;
         }
 
@@ -172,6 +183,37 @@ namespace QuanlyOto
             cb_gender.SelectedIndex = -1;
         }
 
+        private async void btn_export_Click(object sender, EventArgs e)
+        {
+            using (var folderDialog = new FolderBrowserDialog())
+            {
+                if (folderDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string folderPath = folderDialog.SelectedPath;
+                    string fileName = $"KhachHang_{DateTime.Now.ToString("yyyy_MM_dd")}.xlsx";
+                    string filePath = Path.Combine(folderPath, fileName);
+                    var listCustomers = await _customerAccess.GetCustomers();
+                    bool isExport = _actionAccess.ExportCustomerToExcel(filePath, listCustomers);
+                    if (isExport)
+                        MessageBox.Show("Xuất báo cáo thành công.");
+                }
+            }
+        }
 
+        private async Task<List<Customer>> GCustomers(string keyword = null)
+        {
+            List<Customer> customerList = new List<Customer>();
+            if (!string.IsNullOrEmpty(keyword))
+                customerList = await _customerAccess.GetCustomers(keyword);
+            else
+                customerList = await _customerAccess.GetCustomers();
+            return customerList;
+        }
+
+        private async void btn_search_Click(object sender, EventArgs e)
+        {
+            string keywords = tbx_search.Text ?? "";
+            await LoadCustomersAsync(keywords);
+        }
     }
 }

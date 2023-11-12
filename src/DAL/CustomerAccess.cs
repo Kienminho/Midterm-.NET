@@ -1,6 +1,8 @@
 ﻿
 using DTO.Entity;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
+using System.Reflection;
 
 namespace DAL
 {
@@ -13,24 +15,31 @@ namespace DAL
             _dataAccess = dataAccess;
         }
 
-        public async Task<List<Customer>> getListCustomer()
+        public async Task<List<Customer>> GetCustomers(string keywords = null)
         {
-            var query = from customer in _dataAccess.Repository<Customer>()
+            var query = from c in _dataAccess.Repository<Customer>()
                         select new Customer
                         {
-                            CustomerId = customer.CustomerId,
-                            FullName = customer.FullName,
-                            PhoneNumber = customer.PhoneNumber,
-                            Address = customer.Address,
-                            Gender = customer.Gender,
+                            CustomerId = c.CustomerId,
+                            FullName = c.FullName,
+                            Address = c.Address,
+                            PhoneNumber = c.PhoneNumber,
+                            Gender = c.Gender
                         };
 
-            var list = await query.ToListAsync();
-            return list;
+            // Apply search condition if the parameter is provided
+            if (!string.IsNullOrEmpty(keywords))
+            {
+                query = query.Where(c =>
+                    c.FullName.Contains(keywords) || c.PhoneNumber.Contains(keywords));
+            }
+
+            var result = await query.ToListAsync();
+
+            return result;
         }
 
         //delete customer
-
         public async Task<bool> deleteCustomer(Guid id)
         {
             var query = await _dataAccess.Repository<Customer>().FirstOrDefaultAsync(x => x.CustomerId == id);
@@ -73,6 +82,12 @@ namespace DAL
 
             var res = await _dataAccess.SaveChangesAsync();
             return res > 0;
+        }
+
+        public async Task<Customer> getCustomerByName(string name)
+        {
+            Customer customer = await _dataAccess.Repository<Customer>().FirstOrDefaultAsync(p => p.FullName == name);
+            return customer;
         }
 
 

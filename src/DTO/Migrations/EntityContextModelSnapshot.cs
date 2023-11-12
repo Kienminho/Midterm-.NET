@@ -77,13 +77,7 @@ namespace DTO.Migrations
                     b.Property<Guid>("CarId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("CardId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CustomerId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("CustomerId1")
+                    b.Property<Guid>("CustomerId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("FromDate")
@@ -103,7 +97,7 @@ namespace DTO.Migrations
 
                     b.HasIndex("CarId");
 
-                    b.HasIndex("CustomerId1");
+                    b.HasIndex("CustomerId");
 
                     b.ToTable("Bookings");
                 });
@@ -204,16 +198,10 @@ namespace DTO.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("CarId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("CarId1")
+                    b.Property<Guid>("CarId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("CustomerId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("CustomerId1")
+                    b.Property<Guid>("CustomerId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("FromDate")
@@ -224,9 +212,9 @@ namespace DTO.Migrations
 
                     b.HasKey("ScheduleId");
 
-                    b.HasIndex("CarId1");
+                    b.HasIndex("CarId");
 
-                    b.HasIndex("CustomerId1");
+                    b.HasIndex("CustomerId");
 
                     b.ToTable("Schedules");
                 });
@@ -256,7 +244,7 @@ namespace DTO.Migrations
 
                     b.HasOne("DTO.Entity.Customer", "Customer")
                         .WithMany("Bookings")
-                        .HasForeignKey("CustomerId1")
+                        .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -269,13 +257,13 @@ namespace DTO.Migrations
                 {
                     b.HasOne("DTO.Entity.Car", "Car")
                         .WithMany("Schedules")
-                        .HasForeignKey("CarId1")
+                        .HasForeignKey("CarId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("DTO.Entity.Customer", "Customer")
                         .WithMany("Schedules")
-                        .HasForeignKey("CustomerId1")
+                        .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

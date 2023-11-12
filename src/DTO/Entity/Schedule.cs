@@ -16,11 +16,11 @@ namespace DTO.Entity
         public DateTime ToDate { get; set; }
 
         //relationshop many to one with car
-        public int CarId { get; set; }
         public virtual Car Car { get; set; }
 
         //relationshop many to one with customer
-        public int CustomerId { get; set; }
         public virtual Customer Customer { get; set; }
+
+        public string? Status { get; set; }
     }
 }
