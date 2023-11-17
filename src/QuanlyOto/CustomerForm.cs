@@ -93,6 +93,9 @@ namespace QuanlyOto
                 var newCustomer = await _customerAccess.addCustomer(name, numberPhone, address, gender);
                 customers.Add(newCustomer);
                 cleanData();
+                dgv_customer.DataSource = null;
+                dgv_customer.Rows.Clear();
+                dgv_customer.DataSource = customers;
                 dgv_customer.Refresh();
             }
 
@@ -155,11 +158,6 @@ namespace QuanlyOto
                 customers = await GCustomers(keywords);
             else
                 customers = await GCustomers(); // Replace with your method to get customers
-            if (customers.Count == 0)
-            {
-                MessageBox.Show("Không tìm thấy khách hàng phù hợp");
-                return;
-            }
 
             // Assuming dgv_customers is the name of your DataGridView
             dgv_customer.DataSource = null;
@@ -210,7 +208,7 @@ namespace QuanlyOto
             return customerList;
         }
 
-        private async void btn_search_Click(object sender, EventArgs e)
+        private async void tbx_search_TextChanged(object sender, EventArgs e)
         {
             string keywords = tbx_search.Text ?? "";
             await LoadCustomersAsync(keywords);

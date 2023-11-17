@@ -21,6 +21,11 @@ namespace DTO.Entity
         //relationshop many to one with customer
         public virtual Customer Customer { get; set; }
 
+        public Guid BookingId { get; set;}
+
+        public virtual Booking? Booking { get; set; }
+
+
         public string? Status { get; set; }
     }
 }

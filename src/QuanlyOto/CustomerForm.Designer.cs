@@ -85,6 +85,7 @@
             tbx_search.Name = "tbx_search";
             tbx_search.Size = new Size(178, 23);
             tbx_search.TabIndex = 1;
+            tbx_search.TextChanged += tbx_search_TextChanged;
             // 
             // btn_search
             // 
@@ -96,7 +97,6 @@
             btn_search.TabIndex = 2;
             btn_search.Text = "Tìm kiếm";
             btn_search.UseVisualStyleBackColor = true;
-            btn_search.Click += btn_search_Click;
             // 
             // label2
             // 

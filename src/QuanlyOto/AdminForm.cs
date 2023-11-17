@@ -1,8 +1,9 @@
 ﻿using DAL;
-using System.Windows.Forms;
+using System.ComponentModel;
 using QuanlyOto.Common;
 using DTO.Response;
-
+using DTO.Entity;
+using System.Collections.Generic;
 
 namespace QuanlyOto
 {
@@ -10,16 +11,23 @@ namespace QuanlyOto
     {
         private readonly BookingsAccess _bookingsAccess;
         private readonly ActionAccess _actionAccess;
+        private readonly CarAccess _carAccess;
+        private readonly SchedulesAccess _scheduleAccess;
+        private BindingList<Car> car;
+        private BindingList<ScheduleResponse> schedules;
         private List<BookingResponse> listBookings;
+        private DataGridViewRow rowSelected = null;
         //tổng doanh thu
         double totalRevenue = 0;
         double numberOfRentals = 0;
-        public AdminForm(BookingsAccess bookingsAccess, ActionAccess actionAccess)
+        public AdminForm(BookingsAccess bookingsAccess, ActionAccess actionAccess, CarAccess carAccess, SchedulesAccess scheduleAccess)
         {
             InitializeComponent();
             listBookings = new List<BookingResponse>();
             _bookingsAccess = bookingsAccess;
             _actionAccess = actionAccess;
+            _carAccess = carAccess;
+            _scheduleAccess = scheduleAccess;
         }
 
         private void AdminForm_Load(object sender, EventArgs e)
@@ -78,21 +86,255 @@ namespace QuanlyOto
             dgw_DoanhThu.DataSource = bookings;
         }
 
-        void carManagement_Click(object sender, EventArgs e)
+        async void carManagement_Click(object sender, EventArgs e)
         {
+            var list = await _carAccess.getAllCar();
+            car = new BindingList<Car>(list);
+            dgw_carManagement.DataSource = list;
+            dgw_carManagement.Refresh();
 
         }
 
-        void scheduleManagement_Click(object sender, EventArgs e)
+        async void scheduleManagement_Click(object sender, EventArgs e)
         {
-
+            var scheduleList = await _scheduleAccess.GetSchedules();
+            schedules = new BindingList<ScheduleResponse>(scheduleList);
+            dgw_Schedule.DataSource = scheduleList;
+            dgw_Schedule.Refresh();
         }
 
         private void btn_chart_Click(object sender, EventArgs e)
         {
-            this.Hide();
             ChartForm chartForm = new ChartForm(_bookingsAccess, listBookings);
-             chartForm.Show();
+            chartForm.Show();
+        }
+
+        private void dgw_carManagement_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                rowSelected = dgw_carManagement.Rows[e.RowIndex];
+
+                tbx_ID.Text = rowSelected.Cells["CarId"].Value.ToString();
+                tbx_nameCar.Text = rowSelected.Cells["CarName"].Value.ToString();
+                tbx_typeCar.Text = rowSelected.Cells["CarType"].Value.ToString();
+                tbx_brand.Text = rowSelected.Cells["Brand"].Value.ToString();
+                tbx_statuts.Text = rowSelected.Cells["Status"].Value.ToString();
+                tbx_price.Text = rowSelected.Cells["RentalFee"].Value.ToString();
+            }
+        }
+
+        //thêm xe
+        private async void btn_addCar_Click(object sender, EventArgs e)
+        {
+            DialogResult res = Commons.ConfirmAdd();
+            if (res == DialogResult.OK)
+            {
+                string nameCar = tbx_nameCar.Text;
+                string typeCar = tbx_typeCar.Text;
+                string brand = tbx_brand.Text;
+                string status = tbx_statuts.Text;
+                string price = tbx_price.Text;
+                if (string.IsNullOrEmpty(nameCar) || string.IsNullOrEmpty(typeCar) || string.IsNullOrEmpty(brand)
+                    || string.IsNullOrEmpty(status) || string.IsNullOrEmpty(price))
+                {
+                    MessageBox.Show("Nhập đủ thông tin xe để thêm.");
+                    return;
+                }
+
+                var c = await _carAccess.AddCar(nameCar, typeCar, brand, status, double.Parse(price));
+                if (car != null)
+                {
+                    MessageBox.Show("Thêm thành công");
+                    car.Add(c);
+                    dgw_carManagement.DataSource = null;
+                    dgw_carManagement.Rows.Clear();
+                    dgw_carManagement.DataSource = car;
+                    cleanData();
+
+
+
+                }
+            }
+        }
+
+        private void cleanData()
+        {
+            tbx_ID.Text = "";
+            tbx_nameCar.Text = "";
+            tbx_typeCar.Text = "";
+            tbx_brand.Text = "";
+            tbx_statuts.Text = "";
+            tbx_price.Text = "";
+            dgw_carManagement.Refresh();
+        }
+
+        private async void btn_deleteCar_Click(object sender, EventArgs e)
+        {
+            DialogResult res = Commons.ConfirmDelete();
+            if (res == DialogResult.OK)
+            {
+                if (rowSelected != null)
+                {
+                    Guid id = new Guid(rowSelected.Cells["CarId"].Value.ToString());
+                    // Delete the customer using your async method
+                    bool isDeleted = await _carAccess.DeleteCar(id);
+
+                    if (isDeleted)
+                    {
+                        MessageBox.Show("Xoá thành công");
+                        Car carToDelete = (Car)rowSelected.DataBoundItem;
+                        // Remove the customer from the BindingList
+                        car.Remove(carToDelete);
+                        dgw_carManagement.DataSource = null;
+                        dgw_carManagement.DataSource = car;
+                        cleanData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể xoá khách hàng này.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một hàng để xoá.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private async void btn_editCar_Click(object sender, EventArgs e)
+        {
+            DialogResult res = Commons.ConfirmUpdate();
+            if (res == DialogResult.OK)
+            {
+                Guid id = new Guid(tbx_ID.Text);
+                string nameCar = tbx_nameCar.Text;
+                string typeCar = tbx_typeCar.Text;
+                string brand = tbx_brand.Text;
+                string status = tbx_statuts.Text;
+                string price = tbx_price.Text;
+                if (id == null || string.IsNullOrEmpty(nameCar) || string.IsNullOrEmpty(typeCar) || string.IsNullOrEmpty(brand)
+                    || string.IsNullOrEmpty(status) || string.IsNullOrEmpty(price))
+                {
+                    MessageBox.Show("Nhập đủ thông tin xe để cập nhật.");
+                    return;
+                }
+
+                Car c = new Car
+                {
+                    CarId = id,
+                    CarName = nameCar,
+                    CarType = typeCar,
+                    Brand = brand,
+                    Status = status,
+                    RentalFee = double.Parse(price),
+                };
+                var isUpdated = await _carAccess.UpdateCar(c);
+
+                if (!isUpdated)
+                {
+                    MessageBox.Show("Vui lòng thử lại.");
+                    return;
+                }
+                MessageBox.Show("Sửa thành công");
+                Car carToDelete = (Car)rowSelected.DataBoundItem;
+                carToDelete.CarName = c.CarName;
+                carToDelete.CarType = c.CarType;
+                carToDelete.Brand = brand;
+                carToDelete.Status = status;
+                carToDelete.RentalFee = c.RentalFee;
+                cleanData();
+            }
+        }
+
+        private void btn_reset_Click(object sender, EventArgs e)
+        {
+            cleanData();
+        }
+
+        private async void tb_search_TextChanged(object sender, EventArgs e)
+        {
+            string keywords = tb_search.Text ?? "";
+            var cars = await _carAccess.getAllCar(keywords);
+            dgw_carManagement.DataSource = null;
+            dgw_carManagement.Rows.Clear();
+            dgw_carManagement.Refresh();
+            dgw_carManagement.DataSource = cars;
+        }
+
+        private void dgw_Schedule_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                rowSelected = dgw_Schedule.Rows[e.RowIndex];
+            }
+        }
+
+        private async void btn_deleteSchedule_Click(object sender, EventArgs e)
+        {
+            DialogResult res = Commons.ConfirmDelete();
+            if (res == DialogResult.OK)
+            {
+                if (rowSelected != null)
+                {
+                    Guid id = new Guid(rowSelected.Cells["ScheduleId"].Value.ToString());
+                    // Delete the customer using your async method
+                    bool isDeleted = await _scheduleAccess.DeleteSchedule(id);
+
+                    if (isDeleted)
+                    {
+                        ScheduleResponse scheduleToDelete = (ScheduleResponse)rowSelected.DataBoundItem;
+                        // Remove the customer from the BindingList
+                        schedules.Remove(scheduleToDelete);
+                        dgw_Schedule.DataSource = null;
+                        dgw_Schedule.DataSource = schedules;
+                        dgw_Schedule.Refresh();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể xoá khách hàng này.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một hàng để xoá.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private async void btn_successSchedule_Click(object sender, EventArgs e)
+        {
+            DialogResult result = Commons.ConfirmSuccess();
+            if(result == DialogResult.OK)
+            {
+                if(rowSelected != null)
+                {
+                    Guid id = new Guid(rowSelected.Cells["ScheduleId"].Value.ToString());
+                    string status = rowSelected.Cells["Status"].Value.ToString();
+                    string carName = rowSelected.Cells["carName"].Value.ToString();
+                    if (status == "Hoàn thành")
+                    {
+                        MessageBox.Show("Đơn hàng đã hoàn tất, không thể hoàn tất lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }     
+                    
+                    //update status car
+                    var car = await _carAccess.getCarByName(carName);
+                    var isUpdateCar = await _carAccess.UpdateCar(new Car { CarId = car.CarId, Status = "Available" });
+                    var isPay = await _scheduleAccess.UpdateSchedule(id, "Hoàn thành", carName);
+                    if(isPay && isUpdateCar)
+                    {
+                        MessageBox.Show("Đơn hàng đã hoàn tất");
+                        ScheduleResponse scheduleToUpdate = (ScheduleResponse)rowSelected.DataBoundItem;
+                        scheduleToUpdate.Status = "Hoàn thành";
+                        dgw_Schedule.Refresh();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một hàng để xoá.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

@@ -31,7 +31,7 @@ namespace DAL
             if (!string.IsNullOrEmpty(keywords))
             {
                 query = query.Where(c =>
-                    c.FullName.Contains(keywords) || c.PhoneNumber.Contains(keywords));
+                    c.FullName.Contains(keywords) || c.PhoneNumber.Contains(keywords) || c.Address.Contains(keywords));
             }
 
             var result = await query.ToListAsync();

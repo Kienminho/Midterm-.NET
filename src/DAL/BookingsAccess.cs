@@ -34,7 +34,7 @@ namespace DAL
             return query;
         }
 
-        public async Task<bool> addBooking(DateTime from, DateTime to, double totalPrice, Car car, Customer c)
+        public async Task<Booking> addBooking(DateTime from, DateTime to, double totalPrice, Car car, Customer c)
         {
             Guid id = Guid.NewGuid();
             Booking booking = new Booking
@@ -43,13 +43,22 @@ namespace DAL
                 FromDate = from,
                 ToDate = to,
                 TotalCosts = totalPrice,
-                Status = "Hoàn thành",
+                Status = "Đang cho thuê",
                 Car = car,
                 Customer = c
             };
             _dataAccess.Repository<Booking>().Add(booking);
-            var res = await _dataAccess.SaveChangesAsync();
+            await _dataAccess.SaveChangesAsync();
 
+            return booking;
+        }
+
+        public async Task<bool> UpdateStatusBooking(Guid id, string status)
+        {
+            var booking = _dataAccess.Repository<Booking>().FirstOrDefault(b => b.BookingId == id);
+            if (booking == null) throw new Exception("Not found!");
+            booking.Status = status;
+            var res = await _dataAccess.SaveChangesAsync();
             return res > 0;
         }
     }

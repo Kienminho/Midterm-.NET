@@ -30,6 +30,7 @@
         {
             tc_admin = new TabControl();
             tabPage1 = new TabPage();
+            btn_chart = new Button();
             lb_numberOfRentals = new Label();
             lb_totalRevenue = new Label();
             textBox3 = new TextBox();
@@ -42,52 +43,37 @@
             dtp_tuNgay = new DateTimePicker();
             dgw_DoanhThu = new DataGridView();
             tabPage2 = new TabPage();
+            btn_search = new Button();
+            tb_search = new TextBox();
+            tbx_price = new TextBox();
+            label4 = new Label();
+            tbx_brand = new TextBox();
             btn_reset = new Button();
-            btn_xoa = new Button();
-            btn_edit_staff = new Button();
-            btn_them = new Button();
-            dtp_ngaySinh = new DateTimePicker();
-            tbx_QueQuan = new TextBox();
-            tbx_TenNhanVien = new TextBox();
-            tbx_CMND = new TextBox();
-            tbx_gioiTinh = new TextBox();
-            tbx_SDT = new TextBox();
+            btn_deleteCar = new Button();
+            btn_editCar = new Button();
+            btn_addCar = new Button();
+            tbx_nameCar = new TextBox();
+            tbx_typeCar = new TextBox();
+            tbx_statuts = new TextBox();
             tbx_ID = new TextBox();
-            label9 = new Label();
             label8 = new Label();
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
-            label4 = new Label();
             label3 = new Label();
-            dgw_Staff = new DataGridView();
-            tpg_TaiKhoan = new TabPage();
-            tbx_address = new TextBox();
-            label17 = new Label();
-            lb_gender = new ListBox();
-            label16 = new Label();
-            btn_reset_staff = new Button();
-            btn_editStaff = new Button();
-            btn_deleteStaff = new Button();
-            btn_addStaff = new Button();
-            label14 = new Label();
-            label13 = new Label();
-            numericUpDown1 = new NumericUpDown();
-            tbx_fullname = new TextBox();
-            tbx_phoneNumber = new TextBox();
-            label12 = new Label();
-            label11 = new Label();
-            label10 = new Label();
-            dgw_TaiKhoan = new DataGridView();
-            btn_chart = new Button();
+            dgw_carManagement = new DataGridView();
+            tpg_Schedule = new TabPage();
+            btn_successSchedule = new Button();
+            btn_resetSchedule = new Button();
+            btn_deleteSchedule = new Button();
+            dgw_Schedule = new DataGridView();
             tc_admin.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgw_DoanhThu).BeginInit();
             tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgw_Staff).BeginInit();
-            tpg_TaiKhoan.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgw_TaiKhoan).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgw_carManagement).BeginInit();
+            tpg_Schedule.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgw_Schedule).BeginInit();
             SuspendLayout();
             // 
             // tc_admin
@@ -95,7 +81,7 @@
             tc_admin.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tc_admin.Controls.Add(tabPage1);
             tc_admin.Controls.Add(tabPage2);
-            tc_admin.Controls.Add(tpg_TaiKhoan);
+            tc_admin.Controls.Add(tpg_Schedule);
             tc_admin.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             tc_admin.Location = new Point(29, 48);
             tc_admin.Margin = new Padding(15);
@@ -128,6 +114,18 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Doanh Thu";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btn_chart
+            // 
+            btn_chart.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_chart.Location = new Point(1064, 542);
+            btn_chart.Margin = new Padding(3, 2, 3, 2);
+            btn_chart.Name = "btn_chart";
+            btn_chart.Size = new Size(125, 40);
+            btn_chart.TabIndex = 17;
+            btn_chart.Text = "Xem biểu đồ";
+            btn_chart.UseVisualStyleBackColor = true;
+            btn_chart.Click += btn_chart_Click;
             // 
             // lb_numberOfRentals
             // 
@@ -256,25 +254,25 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(btn_search);
+            tabPage2.Controls.Add(tb_search);
+            tabPage2.Controls.Add(tbx_price);
+            tabPage2.Controls.Add(label4);
+            tabPage2.Controls.Add(tbx_brand);
             tabPage2.Controls.Add(btn_reset);
-            tabPage2.Controls.Add(btn_xoa);
-            tabPage2.Controls.Add(btn_edit_staff);
-            tabPage2.Controls.Add(btn_them);
-            tabPage2.Controls.Add(dtp_ngaySinh);
-            tabPage2.Controls.Add(tbx_QueQuan);
-            tabPage2.Controls.Add(tbx_TenNhanVien);
-            tabPage2.Controls.Add(tbx_CMND);
-            tabPage2.Controls.Add(tbx_gioiTinh);
-            tabPage2.Controls.Add(tbx_SDT);
+            tabPage2.Controls.Add(btn_deleteCar);
+            tabPage2.Controls.Add(btn_editCar);
+            tabPage2.Controls.Add(btn_addCar);
+            tabPage2.Controls.Add(tbx_nameCar);
+            tabPage2.Controls.Add(tbx_typeCar);
+            tabPage2.Controls.Add(tbx_statuts);
             tabPage2.Controls.Add(tbx_ID);
-            tabPage2.Controls.Add(label9);
             tabPage2.Controls.Add(label8);
             tabPage2.Controls.Add(label7);
             tabPage2.Controls.Add(label6);
             tabPage2.Controls.Add(label5);
-            tabPage2.Controls.Add(label4);
             tabPage2.Controls.Add(label3);
-            tabPage2.Controls.Add(dgw_Staff);
+            tabPage2.Controls.Add(dgw_carManagement);
             tabPage2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             tabPage2.Location = new Point(4, 29);
             tabPage2.Margin = new Padding(15);
@@ -282,13 +280,67 @@
             tabPage2.Padding = new Padding(8);
             tabPage2.Size = new Size(1204, 597);
             tabPage2.TabIndex = 1;
-            tabPage2.Text = "Nhân Viên";
+            tabPage2.Text = "Quản lý xe";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btn_search
+            // 
+            btn_search.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_search.Location = new Point(1043, 31);
+            btn_search.Margin = new Padding(3, 2, 3, 2);
+            btn_search.Name = "btn_search";
+            btn_search.Size = new Size(138, 35);
+            btn_search.TabIndex = 15;
+            btn_search.Text = "Tìm kiếm";
+            btn_search.UseCompatibleTextRendering = true;
+            btn_search.UseVisualStyleBackColor = true;
+            // 
+            // tb_search
+            // 
+            tb_search.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            tb_search.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            tb_search.Location = new Point(789, 31);
+            tb_search.Margin = new Padding(3, 2, 3, 2);
+            tb_search.Multiline = true;
+            tb_search.Name = "tb_search";
+            tb_search.Size = new Size(204, 33);
+            tb_search.TabIndex = 14;
+            tb_search.TextChanged += tb_search_TextChanged;
+            // 
+            // tbx_price
+            // 
+            tbx_price.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            tbx_price.Location = new Point(891, 412);
+            tbx_price.Margin = new Padding(3, 2, 3, 2);
+            tbx_price.Multiline = true;
+            tbx_price.Name = "tbx_price";
+            tbx_price.Size = new Size(301, 33);
+            tbx_price.TabIndex = 13;
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label4.AutoSize = true;
+            label4.Location = new Point(789, 425);
+            label4.Name = "label4";
+            label4.Size = new Size(34, 20);
+            label4.TabIndex = 12;
+            label4.Text = "Giá";
+            // 
+            // tbx_brand
+            // 
+            tbx_brand.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            tbx_brand.Location = new Point(892, 276);
+            tbx_brand.Margin = new Padding(3, 2, 3, 2);
+            tbx_brand.Multiline = true;
+            tbx_brand.Name = "tbx_brand";
+            tbx_brand.Size = new Size(301, 33);
+            tbx_brand.TabIndex = 11;
             // 
             // btn_reset
             // 
             btn_reset.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btn_reset.Location = new Point(1021, 502);
+            btn_reset.Location = new Point(1021, 543);
             btn_reset.Margin = new Padding(3, 2, 3, 2);
             btn_reset.Name = "btn_reset";
             btn_reset.Size = new Size(172, 44);
@@ -296,413 +348,217 @@
             btn_reset.Text = "Reset";
             btn_reset.UseCompatibleTextRendering = true;
             btn_reset.UseVisualStyleBackColor = true;
+            btn_reset.Click += btn_reset_Click;
             // 
-            // btn_xoa
+            // btn_deleteCar
             // 
-            btn_xoa.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btn_xoa.Location = new Point(807, 502);
-            btn_xoa.Margin = new Padding(3, 2, 3, 2);
-            btn_xoa.Name = "btn_xoa";
-            btn_xoa.Size = new Size(172, 44);
-            btn_xoa.TabIndex = 9;
-            btn_xoa.Text = "Xoá";
-            btn_xoa.UseCompatibleTextRendering = true;
-            btn_xoa.UseVisualStyleBackColor = true;
+            btn_deleteCar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_deleteCar.Location = new Point(807, 543);
+            btn_deleteCar.Margin = new Padding(3, 2, 3, 2);
+            btn_deleteCar.Name = "btn_deleteCar";
+            btn_deleteCar.Size = new Size(172, 44);
+            btn_deleteCar.TabIndex = 9;
+            btn_deleteCar.Text = "Xoá";
+            btn_deleteCar.UseCompatibleTextRendering = true;
+            btn_deleteCar.UseVisualStyleBackColor = true;
+            btn_deleteCar.Click += btn_deleteCar_Click;
             // 
-            // btn_edit_staff
+            // btn_editCar
             // 
-            btn_edit_staff.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btn_edit_staff.Location = new Point(1021, 436);
-            btn_edit_staff.Margin = new Padding(3, 2, 3, 2);
-            btn_edit_staff.Name = "btn_edit_staff";
-            btn_edit_staff.Size = new Size(172, 44);
-            btn_edit_staff.TabIndex = 8;
-            btn_edit_staff.Text = "Sửa";
-            btn_edit_staff.UseCompatibleTextRendering = true;
-            btn_edit_staff.UseVisualStyleBackColor = true;
+            btn_editCar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_editCar.Location = new Point(1020, 482);
+            btn_editCar.Margin = new Padding(3, 2, 3, 2);
+            btn_editCar.Name = "btn_editCar";
+            btn_editCar.Size = new Size(172, 44);
+            btn_editCar.TabIndex = 8;
+            btn_editCar.Text = "Sửa";
+            btn_editCar.UseCompatibleTextRendering = true;
+            btn_editCar.UseVisualStyleBackColor = true;
+            btn_editCar.Click += btn_editCar_Click;
             // 
-            // btn_them
+            // btn_addCar
             // 
-            btn_them.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btn_them.Location = new Point(807, 436);
-            btn_them.Margin = new Padding(3, 2, 3, 2);
-            btn_them.Name = "btn_them";
-            btn_them.Size = new Size(172, 44);
-            btn_them.TabIndex = 7;
-            btn_them.Text = "Thêm";
-            btn_them.UseCompatibleTextRendering = true;
-            btn_them.UseVisualStyleBackColor = true;
+            btn_addCar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_addCar.Location = new Point(807, 482);
+            btn_addCar.Margin = new Padding(3, 2, 3, 2);
+            btn_addCar.Name = "btn_addCar";
+            btn_addCar.Size = new Size(172, 44);
+            btn_addCar.TabIndex = 7;
+            btn_addCar.Text = "Thêm";
+            btn_addCar.UseCompatibleTextRendering = true;
+            btn_addCar.UseVisualStyleBackColor = true;
+            btn_addCar.Click += btn_addCar_Click;
             // 
-            // dtp_ngaySinh
+            // tbx_nameCar
             // 
-            dtp_ngaySinh.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            dtp_ngaySinh.Cursor = Cursors.AppStarting;
-            dtp_ngaySinh.DropDownAlign = LeftRightAlignment.Right;
-            dtp_ngaySinh.Format = DateTimePickerFormat.Short;
-            dtp_ngaySinh.Location = new Point(967, 228);
-            dtp_ngaySinh.Margin = new Padding(3, 2, 3, 2);
-            dtp_ngaySinh.Name = "dtp_ngaySinh";
-            dtp_ngaySinh.Size = new Size(226, 26);
-            dtp_ngaySinh.TabIndex = 3;
+            tbx_nameCar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            tbx_nameCar.Location = new Point(891, 159);
+            tbx_nameCar.Margin = new Padding(3, 2, 3, 2);
+            tbx_nameCar.Multiline = true;
+            tbx_nameCar.Name = "tbx_nameCar";
+            tbx_nameCar.Size = new Size(302, 33);
+            tbx_nameCar.TabIndex = 1;
             // 
-            // tbx_QueQuan
+            // tbx_typeCar
             // 
-            tbx_QueQuan.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            tbx_QueQuan.Location = new Point(967, 372);
-            tbx_QueQuan.Margin = new Padding(3, 2, 3, 2);
-            tbx_QueQuan.Multiline = true;
-            tbx_QueQuan.Name = "tbx_QueQuan";
-            tbx_QueQuan.Size = new Size(226, 33);
-            tbx_QueQuan.TabIndex = 6;
+            tbx_typeCar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            tbx_typeCar.Location = new Point(891, 213);
+            tbx_typeCar.Margin = new Padding(3, 2, 3, 2);
+            tbx_typeCar.Multiline = true;
+            tbx_typeCar.Name = "tbx_typeCar";
+            tbx_typeCar.Size = new Size(302, 33);
+            tbx_typeCar.TabIndex = 2;
             // 
-            // tbx_TenNhanVien
+            // tbx_statuts
             // 
-            tbx_TenNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            tbx_TenNhanVien.Location = new Point(967, 96);
-            tbx_TenNhanVien.Margin = new Padding(3, 2, 3, 2);
-            tbx_TenNhanVien.Multiline = true;
-            tbx_TenNhanVien.Name = "tbx_TenNhanVien";
-            tbx_TenNhanVien.Size = new Size(226, 33);
-            tbx_TenNhanVien.TabIndex = 1;
-            // 
-            // tbx_CMND
-            // 
-            tbx_CMND.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            tbx_CMND.Location = new Point(967, 158);
-            tbx_CMND.Margin = new Padding(3, 2, 3, 2);
-            tbx_CMND.Multiline = true;
-            tbx_CMND.Name = "tbx_CMND";
-            tbx_CMND.Size = new Size(226, 33);
-            tbx_CMND.TabIndex = 2;
-            // 
-            // tbx_gioiTinh
-            // 
-            tbx_gioiTinh.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            tbx_gioiTinh.Location = new Point(967, 274);
-            tbx_gioiTinh.Margin = new Padding(3, 2, 3, 2);
-            tbx_gioiTinh.Multiline = true;
-            tbx_gioiTinh.Name = "tbx_gioiTinh";
-            tbx_gioiTinh.Size = new Size(226, 33);
-            tbx_gioiTinh.TabIndex = 4;
-            // 
-            // tbx_SDT
-            // 
-            tbx_SDT.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            tbx_SDT.Location = new Point(967, 322);
-            tbx_SDT.Margin = new Padding(3, 2, 3, 2);
-            tbx_SDT.Multiline = true;
-            tbx_SDT.Name = "tbx_SDT";
-            tbx_SDT.Size = new Size(226, 33);
-            tbx_SDT.TabIndex = 5;
+            tbx_statuts.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            tbx_statuts.Location = new Point(892, 347);
+            tbx_statuts.Margin = new Padding(3, 2, 3, 2);
+            tbx_statuts.Multiline = true;
+            tbx_statuts.Name = "tbx_statuts";
+            tbx_statuts.Size = new Size(301, 33);
+            tbx_statuts.TabIndex = 4;
             // 
             // tbx_ID
             // 
             tbx_ID.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            tbx_ID.Location = new Point(967, 38);
+            tbx_ID.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            tbx_ID.Location = new Point(891, 97);
             tbx_ID.Margin = new Padding(3, 2, 3, 2);
             tbx_ID.Multiline = true;
             tbx_ID.Name = "tbx_ID";
-            tbx_ID.Size = new Size(226, 33);
+            tbx_ID.Size = new Size(302, 33);
             tbx_ID.TabIndex = 0;
-            // 
-            // label9
-            // 
-            label9.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label9.AutoSize = true;
-            label9.Location = new Point(807, 385);
-            label9.Name = "label9";
-            label9.Size = new Size(82, 20);
-            label9.TabIndex = 8;
-            label9.Text = "Quê Quán";
             // 
             // label8
             // 
             label8.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label8.AutoSize = true;
-            label8.Location = new Point(807, 109);
+            label8.Location = new Point(789, 172);
             label8.Name = "label8";
-            label8.Size = new Size(114, 20);
+            label8.Size = new Size(56, 20);
             label8.TabIndex = 7;
-            label8.Text = "Tên Nhân Viên";
+            label8.Text = "Tên xe";
             // 
             // label7
             // 
             label7.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label7.AutoSize = true;
-            label7.Location = new Point(807, 171);
+            label7.Location = new Point(789, 226);
             label7.Name = "label7";
-            label7.Size = new Size(56, 20);
+            label7.Size = new Size(59, 20);
             label7.TabIndex = 6;
-            label7.Text = "CMND";
+            label7.Text = "Loại xe";
             // 
             // label6
             // 
             label6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label6.AutoSize = true;
-            label6.Location = new Point(807, 233);
+            label6.Location = new Point(789, 289);
             label6.Name = "label6";
-            label6.Size = new Size(81, 20);
+            label6.Size = new Size(97, 20);
             label6.TabIndex = 5;
-            label6.Text = "Ngày Sinh";
+            label6.Text = "Thương hiệu";
             // 
             // label5
             // 
             label5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label5.AutoSize = true;
-            label5.Location = new Point(807, 287);
+            label5.Location = new Point(789, 350);
             label5.Name = "label5";
-            label5.Size = new Size(71, 20);
+            label5.Size = new Size(80, 20);
             label5.TabIndex = 4;
-            label5.Text = "Giới Tính";
-            // 
-            // label4
-            // 
-            label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label4.AutoSize = true;
-            label4.Location = new Point(807, 335);
-            label4.Name = "label4";
-            label4.Size = new Size(41, 20);
-            label4.TabIndex = 3;
-            label4.Text = "SDT";
+            label5.Text = "Trạng thái";
             // 
             // label3
             // 
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label3.AutoSize = true;
-            label3.Location = new Point(807, 51);
+            label3.Location = new Point(789, 110);
             label3.Name = "label3";
-            label3.Size = new Size(26, 20);
+            label3.Size = new Size(55, 20);
             label3.TabIndex = 2;
-            label3.Text = "ID";
+            label3.Text = "Car ID";
             // 
-            // dgw_Staff
+            // dgw_carManagement
             // 
-            dgw_Staff.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgw_Staff.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgw_Staff.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dgw_Staff.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgw_Staff.Location = new Point(0, 4);
-            dgw_Staff.Margin = new Padding(8);
-            dgw_Staff.Name = "dgw_Staff";
-            dgw_Staff.RowHeadersWidth = 51;
-            dgw_Staff.RowTemplate.Height = 24;
-            dgw_Staff.Size = new Size(796, 589);
-            dgw_Staff.TabIndex = 1;
+            dgw_carManagement.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgw_carManagement.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgw_carManagement.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgw_carManagement.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgw_carManagement.Location = new Point(0, 4);
+            dgw_carManagement.Margin = new Padding(8);
+            dgw_carManagement.Name = "dgw_carManagement";
+            dgw_carManagement.RowHeadersWidth = 51;
+            dgw_carManagement.RowTemplate.Height = 24;
+            dgw_carManagement.Size = new Size(766, 589);
+            dgw_carManagement.TabIndex = 1;
+            dgw_carManagement.CellContentClick += dgw_carManagement_CellContentClick;
             // 
-            // tpg_TaiKhoan
+            // tpg_Schedule
             // 
-            tpg_TaiKhoan.Controls.Add(tbx_address);
-            tpg_TaiKhoan.Controls.Add(label17);
-            tpg_TaiKhoan.Controls.Add(lb_gender);
-            tpg_TaiKhoan.Controls.Add(label16);
-            tpg_TaiKhoan.Controls.Add(btn_reset_staff);
-            tpg_TaiKhoan.Controls.Add(btn_editStaff);
-            tpg_TaiKhoan.Controls.Add(btn_deleteStaff);
-            tpg_TaiKhoan.Controls.Add(btn_addStaff);
-            tpg_TaiKhoan.Controls.Add(label14);
-            tpg_TaiKhoan.Controls.Add(label13);
-            tpg_TaiKhoan.Controls.Add(numericUpDown1);
-            tpg_TaiKhoan.Controls.Add(tbx_fullname);
-            tpg_TaiKhoan.Controls.Add(tbx_phoneNumber);
-            tpg_TaiKhoan.Controls.Add(label12);
-            tpg_TaiKhoan.Controls.Add(label11);
-            tpg_TaiKhoan.Controls.Add(label10);
-            tpg_TaiKhoan.Controls.Add(dgw_TaiKhoan);
-            tpg_TaiKhoan.Location = new Point(4, 29);
-            tpg_TaiKhoan.Margin = new Padding(8);
-            tpg_TaiKhoan.Name = "tpg_TaiKhoan";
-            tpg_TaiKhoan.Padding = new Padding(15);
-            tpg_TaiKhoan.Size = new Size(1204, 597);
-            tpg_TaiKhoan.TabIndex = 2;
-            tpg_TaiKhoan.Text = "Tài Khoản";
-            tpg_TaiKhoan.UseVisualStyleBackColor = true;
+            tpg_Schedule.Controls.Add(btn_successSchedule);
+            tpg_Schedule.Controls.Add(btn_resetSchedule);
+            tpg_Schedule.Controls.Add(btn_deleteSchedule);
+            tpg_Schedule.Controls.Add(dgw_Schedule);
+            tpg_Schedule.Location = new Point(4, 29);
+            tpg_Schedule.Margin = new Padding(8);
+            tpg_Schedule.Name = "tpg_Schedule";
+            tpg_Schedule.Padding = new Padding(15);
+            tpg_Schedule.Size = new Size(1204, 597);
+            tpg_Schedule.TabIndex = 2;
+            tpg_Schedule.Text = "Lịch trình";
+            tpg_Schedule.UseVisualStyleBackColor = true;
             // 
-            // tbx_address
+            // btn_successSchedule
             // 
-            tbx_address.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            tbx_address.Location = new Point(1006, 255);
-            tbx_address.Margin = new Padding(3, 2, 3, 2);
-            tbx_address.Name = "tbx_address";
-            tbx_address.Size = new Size(180, 26);
-            tbx_address.TabIndex = 16;
+            btn_successSchedule.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_successSchedule.Location = new Point(1067, 259);
+            btn_successSchedule.Margin = new Padding(3, 2, 3, 2);
+            btn_successSchedule.Name = "btn_successSchedule";
+            btn_successSchedule.Size = new Size(119, 35);
+            btn_successSchedule.TabIndex = 12;
+            btn_successSchedule.Text = "Hoàn tất";
+            btn_successSchedule.UseVisualStyleBackColor = true;
+            btn_successSchedule.Click += btn_successSchedule_Click;
             // 
-            // label17
+            // btn_resetSchedule
             // 
-            label17.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label17.AutoSize = true;
-            label17.Location = new Point(876, 261);
-            label17.Name = "label17";
-            label17.Size = new Size(57, 20);
-            label17.TabIndex = 15;
-            label17.Text = "Địa chỉ";
+            btn_resetSchedule.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_resetSchedule.Location = new Point(983, 341);
+            btn_resetSchedule.Margin = new Padding(3, 2, 3, 2);
+            btn_resetSchedule.Name = "btn_resetSchedule";
+            btn_resetSchedule.Size = new Size(119, 35);
+            btn_resetSchedule.TabIndex = 11;
+            btn_resetSchedule.Text = "Reset ";
+            btn_resetSchedule.UseVisualStyleBackColor = true;
             // 
-            // lb_gender
+            // btn_deleteSchedule
             // 
-            lb_gender.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lb_gender.FormattingEnabled = true;
-            lb_gender.ItemHeight = 20;
-            lb_gender.Items.AddRange(new object[] { "Nam", "Nữ" });
-            lb_gender.Location = new Point(1008, 198);
-            lb_gender.Name = "lb_gender";
-            lb_gender.Size = new Size(178, 4);
-            lb_gender.TabIndex = 14;
+            btn_deleteSchedule.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_deleteSchedule.Location = new Point(876, 259);
+            btn_deleteSchedule.Margin = new Padding(3, 2, 3, 2);
+            btn_deleteSchedule.Name = "btn_deleteSchedule";
+            btn_deleteSchedule.Size = new Size(119, 35);
+            btn_deleteSchedule.TabIndex = 4;
+            btn_deleteSchedule.Text = "Xoá lịch trình";
+            btn_deleteSchedule.UseVisualStyleBackColor = true;
+            btn_deleteSchedule.Click += btn_deleteSchedule_Click;
             // 
-            // label16
+            // dgw_Schedule
             // 
-            label16.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label16.AutoSize = true;
-            label16.Location = new Point(876, 202);
-            label16.Name = "label16";
-            label16.Size = new Size(67, 20);
-            label16.TabIndex = 12;
-            label16.Text = "Giới tính";
-            // 
-            // btn_reset_staff
-            // 
-            btn_reset_staff.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btn_reset_staff.Location = new Point(1076, 512);
-            btn_reset_staff.Margin = new Padding(3, 2, 3, 2);
-            btn_reset_staff.Name = "btn_reset_staff";
-            btn_reset_staff.Size = new Size(83, 35);
-            btn_reset_staff.TabIndex = 11;
-            btn_reset_staff.Text = "Reset ";
-            btn_reset_staff.UseVisualStyleBackColor = true;
-            // 
-            // btn_editStaff
-            // 
-            btn_editStaff.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btn_editStaff.Location = new Point(923, 512);
-            btn_editStaff.Margin = new Padding(3, 2, 3, 2);
-            btn_editStaff.Name = "btn_editStaff";
-            btn_editStaff.Size = new Size(83, 35);
-            btn_editStaff.TabIndex = 5;
-            btn_editStaff.Text = "Sửa";
-            btn_editStaff.UseVisualStyleBackColor = true;
-            // 
-            // btn_deleteStaff
-            // 
-            btn_deleteStaff.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btn_deleteStaff.Location = new Point(1076, 445);
-            btn_deleteStaff.Margin = new Padding(3, 2, 3, 2);
-            btn_deleteStaff.Name = "btn_deleteStaff";
-            btn_deleteStaff.Size = new Size(83, 35);
-            btn_deleteStaff.TabIndex = 4;
-            btn_deleteStaff.Text = "Xoá";
-            btn_deleteStaff.UseVisualStyleBackColor = true;
-            // 
-            // btn_addStaff
-            // 
-            btn_addStaff.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btn_addStaff.Location = new Point(923, 445);
-            btn_addStaff.Margin = new Padding(3, 2, 3, 2);
-            btn_addStaff.Name = "btn_addStaff";
-            btn_addStaff.Size = new Size(83, 35);
-            btn_addStaff.TabIndex = 3;
-            btn_addStaff.Text = "Thêm";
-            btn_addStaff.UseVisualStyleBackColor = true;
-            // 
-            // label14
-            // 
-            label14.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label14.AutoSize = true;
-            label14.Location = new Point(1104, 358);
-            label14.Name = "label14";
-            label14.Size = new Size(60, 20);
-            label14.TabIndex = 10;
-            label14.Text = "1: User";
-            // 
-            // label13
-            // 
-            label13.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label13.AutoSize = true;
-            label13.Location = new Point(1126, 325);
-            label13.Name = "label13";
-            label13.Size = new Size(71, 20);
-            label13.TabIndex = 9;
-            label13.Text = "0: Admin";
-            // 
-            // numericUpDown1
-            // 
-            numericUpDown1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            numericUpDown1.Increment = new decimal(new int[] { 0, 0, 0, 0 });
-            numericUpDown1.Location = new Point(1008, 340);
-            numericUpDown1.Margin = new Padding(2);
-            numericUpDown1.Maximum = new decimal(new int[] { 1, 0, 0, 0 });
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(64, 26);
-            numericUpDown1.TabIndex = 2;
-            // 
-            // tbx_fullname
-            // 
-            tbx_fullname.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            tbx_fullname.Location = new Point(1008, 134);
-            tbx_fullname.Margin = new Padding(3, 2, 3, 2);
-            tbx_fullname.Name = "tbx_fullname";
-            tbx_fullname.Size = new Size(180, 26);
-            tbx_fullname.TabIndex = 1;
-            // 
-            // tbx_phoneNumber
-            // 
-            tbx_phoneNumber.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            tbx_phoneNumber.Location = new Point(1008, 63);
-            tbx_phoneNumber.Margin = new Padding(3, 2, 3, 2);
-            tbx_phoneNumber.Name = "tbx_phoneNumber";
-            tbx_phoneNumber.Size = new Size(180, 26);
-            tbx_phoneNumber.TabIndex = 0;
-            // 
-            // label12
-            // 
-            label12.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label12.AutoSize = true;
-            label12.Location = new Point(876, 346);
-            label12.Name = "label12";
-            label12.Size = new Size(114, 20);
-            label12.TabIndex = 4;
-            label12.Text = "Loại Tài Khoản";
-            // 
-            // label11
-            // 
-            label11.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label11.AutoSize = true;
-            label11.Location = new Point(876, 140);
-            label11.Name = "label11";
-            label11.Size = new Size(77, 20);
-            label11.TabIndex = 3;
-            label11.Text = "Họ và tên";
-            // 
-            // label10
-            // 
-            label10.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label10.AutoSize = true;
-            label10.Location = new Point(876, 69);
-            label10.Name = "label10";
-            label10.Size = new Size(102, 20);
-            label10.TabIndex = 2;
-            label10.Text = "Số điện thoại";
-            // 
-            // dgw_TaiKhoan
-            // 
-            dgw_TaiKhoan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgw_TaiKhoan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgw_TaiKhoan.Location = new Point(0, 4);
-            dgw_TaiKhoan.Margin = new Padding(8);
-            dgw_TaiKhoan.Name = "dgw_TaiKhoan";
-            dgw_TaiKhoan.RowHeadersWidth = 51;
-            dgw_TaiKhoan.RowTemplate.Height = 24;
-            dgw_TaiKhoan.Size = new Size(865, 589);
-            dgw_TaiKhoan.TabIndex = 1;
-            // 
-            // btn_chart
-            // 
-            btn_chart.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btn_chart.Location = new Point(1064, 542);
-            btn_chart.Margin = new Padding(3, 2, 3, 2);
-            btn_chart.Name = "btn_chart";
-            btn_chart.Size = new Size(125, 40);
-            btn_chart.TabIndex = 17;
-            btn_chart.Text = "Xem biểu đồ";
-            btn_chart.UseVisualStyleBackColor = true;
-            btn_chart.Click += btn_chart_Click;
+            dgw_Schedule.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgw_Schedule.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgw_Schedule.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgw_Schedule.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgw_Schedule.Location = new Point(0, 4);
+            dgw_Schedule.Margin = new Padding(8);
+            dgw_Schedule.Name = "dgw_Schedule";
+            dgw_Schedule.RowHeadersWidth = 51;
+            dgw_Schedule.RowTemplate.Height = 24;
+            dgw_Schedule.Size = new Size(865, 589);
+            dgw_Schedule.TabIndex = 1;
+            dgw_Schedule.CellContentClick += dgw_Schedule_CellContentClick;
             // 
             // AdminForm
             // 
@@ -721,11 +577,9 @@
             ((System.ComponentModel.ISupportInitialize)dgw_DoanhThu).EndInit();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgw_Staff).EndInit();
-            tpg_TaiKhoan.ResumeLayout(false);
-            tpg_TaiKhoan.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgw_TaiKhoan).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgw_carManagement).EndInit();
+            tpg_Schedule.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgw_Schedule).EndInit();
             ResumeLayout(false);
         }
 
@@ -734,40 +588,27 @@
         private TabControl tc_admin;
         private TabPage tabPage1;
         private TabPage tabPage2;
-        private TabPage tpg_TaiKhoan;
+        private TabPage tpg_Schedule;
         private DataGridView dgw_DoanhThu;
-        private DataGridView dgw_Staff;
-        private DataGridView dgw_TaiKhoan;
+        private DataGridView dgw_carManagement;
+        private DataGridView dgw_Schedule;
         private DateTimePicker dtp_denNgay;
         private Label label1;
         private DateTimePicker dtp_tuNgay;
         private Label label2;
         private Button btn_thongKe;
         private TextBox tbx_ID;
-        private Label label9;
         private Label label8;
         private Label label7;
         private Label label6;
         private Label label5;
-        private Label label4;
         private Label label3;
-        private DateTimePicker dtp_ngaySinh;
-        private TextBox tbx_QueQuan;
-        private TextBox tbx_TenNhanVien;
-        private TextBox tbx_CMND;
-        private TextBox tbx_gioiTinh;
-        private TextBox tbx_SDT;
-        private Button btn_xoa;
-        private Button btn_edit_staff;
-        private Button btn_them;
-        private Label label14;
-        private Label label13;
-        private NumericUpDown numericUpDown1;
-        private TextBox tbx_fullname;
-        private TextBox tbx_phoneNumber;
-        private Label label12;
-        private Label label11;
-        private Label label10;
+        private TextBox tbx_nameCar;
+        private TextBox tbx_typeCar;
+        private TextBox tbx_statuts;
+        private Button btn_deleteCar;
+        private Button btn_editCar;
+        private Button btn_addCar;
         private Button btn_editStaff;
         private Button btn_deleteStaff;
         private Button btn_addStaff;
@@ -775,13 +616,16 @@
         private Label label15;
         private TextBox textBox2;
         private TextBox textBox3;
-        private Button btn_reset_staff;
-        private Label label16;
-        private TextBox tbx_address;
-        private Label label17;
-        private ListBox lb_gender;
+        private Button btn_resetSchedule;
+        private Button btn_deleteSchedule;
         private Label lb_numberOfRentals;
         private Label lb_totalRevenue;
         private Button btn_chart;
+        private TextBox tbx_brand;
+        private TextBox tbx_price;
+        private Label label4;
+        private Button btn_search;
+        private TextBox tb_search;
+        private Button btn_successSchedule;
     }
 }

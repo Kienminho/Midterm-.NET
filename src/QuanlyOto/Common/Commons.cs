@@ -34,6 +34,14 @@ namespace QuanlyOto.Common
             return res;
         }
 
+        public static DialogResult ConfirmSuccess()
+        {
+            DialogResult res = MessageBox.Show("Hoàn tất lịch trình này?", "Xác nhận",
+                                                MessageBoxButtons.OKCancel,
+                                                MessageBoxIcon.Information);
+            return res;
+        }
+
         public static String formatStringVietNammes(double number)
         {
             var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");

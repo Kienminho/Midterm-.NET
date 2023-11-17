@@ -74,10 +74,10 @@ namespace DTO.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("CarId")
+                    b.Property<Guid?>("CarId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("CustomerId")
+                    b.Property<Guid?>("CustomerId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("FromDate")
@@ -139,19 +139,15 @@ namespace DTO.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FullName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Gender")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CustomerId");
@@ -198,6 +194,9 @@ namespace DTO.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("BookingId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid>("CarId")
                         .HasColumnType("uniqueidentifier");
 
@@ -207,10 +206,16 @@ namespace DTO.Migrations
                     b.Property<DateTime>("FromDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("ToDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("ScheduleId");
+
+                    b.HasIndex("BookingId")
+                        .IsUnique();
 
                     b.HasIndex("CarId");
 
@@ -238,15 +243,11 @@ namespace DTO.Migrations
                 {
                     b.HasOne("DTO.Entity.Car", "Car")
                         .WithMany("Bookings")
-                        .HasForeignKey("CarId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CarId");
 
                     b.HasOne("DTO.Entity.Customer", "Customer")
                         .WithMany("Bookings")
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CustomerId");
 
                     b.Navigation("Car");
 
@@ -255,6 +256,12 @@ namespace DTO.Migrations
 
             modelBuilder.Entity("DTO.Entity.Schedule", b =>
                 {
+                    b.HasOne("DTO.Entity.Booking", "Booking")
+                        .WithOne("Schedule")
+                        .HasForeignKey("DTO.Entity.Schedule", "BookingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("DTO.Entity.Car", "Car")
                         .WithMany("Schedules")
                         .HasForeignKey("CarId")
@@ -267,9 +274,16 @@ namespace DTO.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Booking");
+
                     b.Navigation("Car");
 
                     b.Navigation("Customer");
+                });
+
+            modelBuilder.Entity("DTO.Entity.Booking", b =>
+                {
+                    b.Navigation("Schedule");
                 });
 
             modelBuilder.Entity("DTO.Entity.Car", b =>

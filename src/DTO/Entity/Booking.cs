@@ -17,10 +17,12 @@
         public String Status { get; set; }
 
         //relationship one to many with entity Car
-        public virtual Car Car { get; set; }
+        public virtual Car? Car { get; set; }
 
         //relationship one to many with entity Customer
-        public virtual Customer Customer { get; set; }
+        public virtual Customer? Customer { get; set; }
+
+        public virtual Schedule? Schedule { get; set; }
 
     }
 }

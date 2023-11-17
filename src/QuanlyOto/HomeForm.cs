@@ -57,7 +57,7 @@ namespace QuanlyOto
 
         private void mnu_Admin_Click(object sender, EventArgs e)
         {
-            AdminForm admin = new AdminForm(_bookingsAccess, _actionAccess);
+            AdminForm admin = new AdminForm(_bookingsAccess, _actionAccess, _carAccess, _scheduleAccess);
             admin.Show();
         }
 
@@ -209,9 +209,10 @@ namespace QuanlyOto
             // logic here
             Customer c = await _customerAccess.getCustomerByName(nameCustomer);
             Car car = await _carAccess.getCar(idCar);
-            var isBooking = await _bookingsAccess.addBooking(dtp_from.Value, dtp_to.Value, totalPrice, car, c);
-            var isSchedules = await _scheduleAccess.addSchedule(dtp_from.Value, dtp_to.Value, car, c);
-            if (isBooking && isSchedules)
+            var booking = await _bookingsAccess.addBooking(dtp_from.Value, dtp_to.Value, totalPrice, car, c);
+            var isSchedules = await _scheduleAccess.addSchedule(dtp_from.Value, dtp_to.Value, car, c, booking);
+            var isUpdateCar = await _carAccess.UpdateCar(new Car {CarId = idCar, Status = "Unavailable" });
+            if (isSchedules && isUpdateCar)
             {
                 MessageBox.Show("Đặt xe thành công.");
                 btn_reset_Click(sender, e);
@@ -219,7 +220,7 @@ namespace QuanlyOto
 
         }
 
-        private void btn_reset_Click(object sender, EventArgs e)
+        private async void btn_reset_Click(object sender, EventArgs e)
         {
             cbb_customer.SelectedIndex = 0;
             dtp_to.Value = DateTime.Now;
@@ -236,6 +237,9 @@ namespace QuanlyOto
             GetCustomers();
             cbb_customer.DataSource = nameCustomers;
             ResetRadioAndCheckBoxControls(this);
+            fl_displayCar.Controls.Clear();
+            List<Car> list = await _carAccess.getAllCar();
+            displayCarItem(list);
         }
 
         //reset radio and checkbox
@@ -259,7 +263,6 @@ namespace QuanlyOto
                 }
             }
         }
-
 
         //lấy danh sách khách hàng
         void GetCustomers()
