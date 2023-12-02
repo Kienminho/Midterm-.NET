@@ -37,12 +37,12 @@ namespace QuanlyOto
             var carAccess = serviceProvider.GetService<CarAccess>();
             var bookingAccess = serviceProvider.GetService<BookingsAccess>();
             var schedulesAccess = serviceProvider.GetService<SchedulesAccess>();
-            //var mainForm = new MainForm(accountAccess, customerAccess, actionAccess, carAccess, bookingAccess, schedulesAccess);
-            var homeForm = new HomeForm(customerAccess, accountAccess, actionAccess, carAccess, bookingAccess, schedulesAccess);
+            var mainForm = new MainForm(accountAccess, customerAccess, actionAccess, carAccess, bookingAccess, schedulesAccess);
+            //var homeForm = new HomeForm(customerAccess, accountAccess, actionAccess, carAccess, bookingAccess, schedulesAccess);
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             
-            Application.Run(homeForm);
+            Application.Run(mainForm);
         }
     }
 

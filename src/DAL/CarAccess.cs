@@ -18,10 +18,9 @@ namespace DAL
             _dataAccess = dataAccess;
         }
 
-        public async Task<List<Car>> getAllCar(string keywords = null)
+        public async Task<List<Car>> getAllCar(string keywords = null, bool isActive = true)
         {
             var list = from c in _dataAccess.Repository<Car>()
-                       .Where(c => c.Status == "Available")
                        select new Car
                        {
                            CarId = c.CarId,
@@ -31,6 +30,7 @@ namespace DAL
                            Status = c.Status,
                            RentalFee = c.RentalFee,
                        };
+            if (!isActive) list = list.Where(c => c.Status != "Unavailable");   
 
             if(!string.IsNullOrEmpty(keywords))
             {
@@ -98,7 +98,7 @@ namespace DAL
                 query.RentalFee = c.RentalFee;
             }
             var res = await _dataAccess.SaveChangesAsync();
-            return res > 0;
+            return res >0;
 
         }
     }

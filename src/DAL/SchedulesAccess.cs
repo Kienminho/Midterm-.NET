@@ -19,16 +19,22 @@ namespace DAL
             var list = from p in _dataAccess.Repository<Schedule>()
                 .Include(c => c.Car)
                 .Include(c => c.Customer)
+                .Include(c => c.Booking)
+                .OrderBy(c => c.FromDate.Date)
+                .ThenBy(c => c.FromDate.TimeOfDay)
                        select new ScheduleResponse
                        {
                            ScheduleId = p.ScheduleId,
                            FromDate = p.FromDate,
                            ToDate = p.ToDate,
                            carName = p.Car.CarName,
+                           priceCar = p.Car.RentalFee,
                            customerName = p.Customer.FullName,
                            numberPhone = p.Customer.PhoneNumber,
+                           TotalFee = p.Booking.TotalCosts,
                            Status = p.Status,
                        };
+
             return  await list.ToListAsync();
         }
 
@@ -61,13 +67,14 @@ namespace DAL
             return res > 0;
         }
 
-        public async Task<bool> UpdateSchedule(Guid id, string status, string carName)
+        public async Task<Schedule> UpdateSchedule(Guid id, string status)
         {
             var schedule = _dataAccess.Repository<Schedule>().FirstOrDefault(s => s.ScheduleId == id);
             if (schedule == null) throw new Exception("Not found Schedule");
             schedule.Status = status;
-            var res = await _dataAccess.SaveChangesAsync();
-            return res > 0;
+            schedule.ToDate = DateTime.Now;
+            await _dataAccess.SaveChangesAsync();
+            return schedule;
         }
     }
 }

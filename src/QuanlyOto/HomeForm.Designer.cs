@@ -557,6 +557,7 @@
             dtp_from.Name = "dtp_from";
             dtp_from.Size = new Size(140, 24);
             dtp_from.TabIndex = 10;
+            dtp_from.ValueChanged += dtp_from_ValueChanged;
             // 
             // lb_priceEachDay
             // 

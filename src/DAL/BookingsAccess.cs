@@ -27,9 +27,11 @@ namespace DAL
                             FullName = c.Customer.FullName,
                             PhoneNumber = c.Customer.PhoneNumber,
                             Address = c.Customer.Address,
+                            CreatedDate = c.CreatedDate,
                             Status = c.Status
                         })
-                        
+                        .OrderBy(c => c.CreatedDate.Date)
+                        .ThenBy(c => c.CreatedDate.TimeOfDay)
                         .ToListAsync();
             return query;
         }
@@ -45,6 +47,7 @@ namespace DAL
                 TotalCosts = totalPrice,
                 Status = "Đang cho thuê",
                 Car = car,
+                CreatedDate = DateTime.Now,
                 Customer = c
             };
             _dataAccess.Repository<Booking>().Add(booking);
@@ -53,11 +56,13 @@ namespace DAL
             return booking;
         }
 
-        public async Task<bool> UpdateStatusBooking(Guid id, string status)
+        public async Task<bool> UpdateStatusBooking(Guid id, double newMoney, string status)
         {
             var booking = _dataAccess.Repository<Booking>().FirstOrDefault(b => b.BookingId == id);
             if (booking == null) throw new Exception("Not found!");
+            booking.TotalCosts += newMoney;
             booking.Status = status;
+            booking.ToDate = DateTime.Now;
             var res = await _dataAccess.SaveChangesAsync();
             return res > 0;
         }

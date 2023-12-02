@@ -20,6 +20,7 @@ namespace QuanlyOto
         //tổng doanh thu
         double totalRevenue = 0;
         double numberOfRentals = 0;
+        double newAmount = 0;
         public AdminForm(BookingsAccess bookingsAccess, ActionAccess actionAccess, CarAccess carAccess, SchedulesAccess scheduleAccess)
         {
             InitializeComponent();
@@ -73,7 +74,7 @@ namespace QuanlyOto
 
         async void statistic_Click(object sender, EventArgs e)
         {
-
+            totalRevenue = 0;
             var bookings = await _bookingsAccess.getBookings();
             listBookings = bookings;
             foreach (var booking in bookings)
@@ -305,34 +306,46 @@ namespace QuanlyOto
         private async void btn_successSchedule_Click(object sender, EventArgs e)
         {
             DialogResult result = Commons.ConfirmSuccess();
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
-                if(rowSelected != null)
+                if (rowSelected != null)
                 {
                     Guid id = new Guid(rowSelected.Cells["ScheduleId"].Value.ToString());
                     string status = rowSelected.Cells["Status"].Value.ToString();
                     string carName = rowSelected.Cells["carName"].Value.ToString();
+                    DateTime toDate = DateTime.Parse(rowSelected.Cells["ToDate"].Value.ToString());
                     if (status == "Hoàn thành")
                     {
                         MessageBox.Show("Đơn hàng đã hoàn tất, không thể hoàn tất lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
-                    }     
-                    
+                    }
+
                     //update status car
                     var car = await _carAccess.getCarByName(carName);
+                    int returnDate = (int)(DateTime.Now.Date - toDate.Date).TotalDays;
+                    if(returnDate > 0)
+                    {
+                        newAmount = car.RentalFee * 1.5 * returnDate;  //số tiền chênh lệch nếu trả xe muộn
+                        DialogResult r = Commons.ConfirmAdditionalPayment(newAmount);
+                        if (r != DialogResult.OK) {
+                            return;
+                        }
+                    }
                     var isUpdateCar = await _carAccess.UpdateCar(new Car { CarId = car.CarId, Status = "Available" });
-                    var isPay = await _scheduleAccess.UpdateSchedule(id, "Hoàn thành", carName);
-                    if(isPay && isUpdateCar)
+                    var schedule = await _scheduleAccess.UpdateSchedule(id, "Hoàn thành");
+                    var isUpdateBooking = await _bookingsAccess.UpdateStatusBooking(schedule.BookingId, newAmount, "Hoàn thành");
+                    if (isUpdateBooking && isUpdateCar)
                     {
                         MessageBox.Show("Đơn hàng đã hoàn tất");
                         ScheduleResponse scheduleToUpdate = (ScheduleResponse)rowSelected.DataBoundItem;
                         scheduleToUpdate.Status = "Hoàn thành";
+                        scheduleToUpdate.TotalFee += newAmount;
                         dgw_Schedule.Refresh();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Vui lòng chọn một hàng để xoá.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Vui lòng chọn một hàng để xác nhận.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

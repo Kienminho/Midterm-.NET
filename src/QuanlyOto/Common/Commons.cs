@@ -42,6 +42,16 @@ namespace QuanlyOto.Common
             return res;
         }
 
+        public static DialogResult ConfirmAdditionalPayment(double additionalAmount)
+        {
+            string message = $"Bạn sẽ phải trả thêm số tiền {formatStringVietNammes(additionalAmount)}. Nhấp vào 'OK' để hoàn tất giao dịch.";
+
+            DialogResult result = MessageBox.Show(message, "Xác nhận thanh toán",
+                                                  MessageBoxButtons.OKCancel,
+                                                  MessageBoxIcon.Information);
+            return result;
+        }
+
         public static String formatStringVietNammes(double number)
         {
             var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");

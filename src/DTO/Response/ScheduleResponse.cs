@@ -19,10 +19,14 @@ namespace DTO.Response
         //relationshop many to one with car
         public string? carName { get; set; }
 
+        public double? priceCar { get; set; }
+
         //relationshop many to one with customer
         public string? customerName { get; set; }
 
         public string? numberPhone { get; set; }
+
+        public double? TotalFee { get; set; }
 
         public string? Status { get; set; }
     }

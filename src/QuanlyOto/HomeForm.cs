@@ -39,7 +39,7 @@ namespace QuanlyOto
         {
             GetCustomers();
             displayUI();
-            List<Car> list = await _carAccess.getAllCar();
+            List<Car> list = await _carAccess.getAllCar("", false);
             displayCarItem(list);
         }
 
@@ -108,16 +108,14 @@ namespace QuanlyOto
         async void displayUI()
         {
             //lấy danh sách khách hàng
-            
-
             cbb_customer.DataSource = nameCustomers;
-            /*if (!GlobalVariables.AccountTypes)
+            if (!GlobalVariables.AccountTypes)
             {
                 mnu_Admin.Enabled = false;
                 mnu_Import.Enabled = false;
             }
             else
-                mnu_TTCN.Enabled = false;*/
+                mnu_TTCN.Enabled = false;
         }
 
         void selectCar(object sender, EventArgs e)
@@ -182,12 +180,13 @@ namespace QuanlyOto
         private void dtp_to_ValueChanged(object sender, EventArgs e)
         {
             // Calculate the number of days between fromDay and toDay
-            TimeSpan duration = dtp_to.Value - dtp_from.Value;
+            TimeSpan duration = dtp_to.Value.Date - dtp_from.Value.Date;
             // Display the result
-            numberOfDays = (int)duration.TotalDays <= 0 ? 1 : (int)duration.TotalDays;
-            if (numberOfDays <= 0)
+            numberOfDays = (int)duration.TotalDays;
+            if (numberOfDays < 0)
             {
                 MessageBox.Show("Thời gian thuê phải từ một ngày trở lên, vui lòng chọn lại!");
+                dtp_to.Value = DateTime.Now;
                 return;
             }
             lb_totalDay.Text = numberOfDays.ToString();
@@ -206,12 +205,18 @@ namespace QuanlyOto
                 return;
             }
 
+            if(DateTime.Compare(dtp_to.Value.Date, dtp_from.Value.Date) == 0)
+            {
+                MessageBox.Show("Thời gian phải từ một ngày trở lên, vui lòng chọn lại.");
+                return;
+            }
+
             // logic here
             Customer c = await _customerAccess.getCustomerByName(nameCustomer);
             Car car = await _carAccess.getCar(idCar);
             var booking = await _bookingsAccess.addBooking(dtp_from.Value, dtp_to.Value, totalPrice, car, c);
             var isSchedules = await _scheduleAccess.addSchedule(dtp_from.Value, dtp_to.Value, car, c, booking);
-            var isUpdateCar = await _carAccess.UpdateCar(new Car {CarId = idCar, Status = "Unavailable" });
+            var isUpdateCar = await _carAccess.UpdateCar(new Car { CarId = idCar, Status = "Unavailable" });
             if (isSchedules && isUpdateCar)
             {
                 MessageBox.Show("Đặt xe thành công.");
@@ -238,7 +243,7 @@ namespace QuanlyOto
             cbb_customer.DataSource = nameCustomers;
             ResetRadioAndCheckBoxControls(this);
             fl_displayCar.Controls.Clear();
-            List<Car> list = await _carAccess.getAllCar();
+            List<Car> list = await _carAccess.getAllCar("", false);
             displayCarItem(list);
         }
 
@@ -276,6 +281,16 @@ namespace QuanlyOto
                     nameCustomers.Add(item.FullName);
                 }
             }).Wait();
+        }
+
+        private void dtp_from_ValueChanged(object sender, EventArgs e)
+        {
+            if (DateTime.Compare(dtp_from.Value.Date, DateTime.Now.Date) < 0)
+            {
+                MessageBox.Show("Vui lòng chọn lại ngày đặt xe.");
+                dtp_from.Value = DateTime.Now;
+                return;
+            }
         }
     }
 }

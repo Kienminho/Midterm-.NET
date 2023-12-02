@@ -1,5 +1,6 @@
 ﻿using DAL;
 using DTO.Entity;
+using DTO.Response;
 using QuanlyOto.Common;
 using System.ComponentModel;
 
@@ -43,9 +44,10 @@ namespace QuanlyOto
                 string name = tbx_Ten.Text;
                 string numberPhone = tbx_sdt.Text;
                 string address = tbx_diachi.Text;
+                string cccd = tbx_CMND.Text;
                 string gender = cb_gender.GetItemText(cb_gender.SelectedItem).ToString();
 
-                if (id.Equals("") || name.Equals("") || numberPhone.Equals("") || address.Equals("") || gender.Equals(""))
+                if (id.Equals("") || name.Equals("") || numberPhone.Equals("") || address.Equals("") || gender.Equals("") || cccd.Equals(""))
                 {
                     MessageBox.Show("Cần nhập đủ thông tin nhân viên, để cập nhật.");
                     return;
@@ -57,6 +59,7 @@ namespace QuanlyOto
                     CustomerId = id,
                     FullName = name,
                     Address = address,
+                    CCCD = cccd,
                     PhoneNumber = numberPhone,
                     Gender = gender
 
@@ -81,16 +84,17 @@ namespace QuanlyOto
             {
                 string name = tbx_Ten.Text;
                 string numberPhone = tbx_sdt.Text;
+                string cccd = tbx_CMND.Text;
                 string address = tbx_diachi.Text;
                 string gender = cb_gender.GetItemText(cb_gender.SelectedItem).ToString();
 
-                if (name.Equals("") || numberPhone.Equals("") || address.Equals("") || gender.Equals(""))
+                if (name.Equals("") || numberPhone.Equals("") || address.Equals("") || gender.Equals("") || cccd.Equals(""))
                 {
                     MessageBox.Show("Cần nhập đủ thông tin nhân viên.");
                     return;
                 }
 
-                var newCustomer = await _customerAccess.addCustomer(name, numberPhone, address, gender);
+                var newCustomer = await _customerAccess.addCustomer(name, numberPhone, address, gender, cccd);
                 customers.Add(newCustomer);
                 cleanData();
                 dgv_customer.DataSource = null;

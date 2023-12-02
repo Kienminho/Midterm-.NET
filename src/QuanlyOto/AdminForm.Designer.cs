@@ -30,6 +30,7 @@
         {
             tc_admin = new TabControl();
             tabPage1 = new TabPage();
+            dgw_DoanhThu = new DataGridView();
             btn_chart = new Button();
             lb_numberOfRentals = new Label();
             lb_totalRevenue = new Label();
@@ -41,7 +42,6 @@
             dtp_denNgay = new DateTimePicker();
             label1 = new Label();
             dtp_tuNgay = new DateTimePicker();
-            dgw_DoanhThu = new DataGridView();
             tabPage2 = new TabPage();
             btn_search = new Button();
             tb_search = new TextBox();
@@ -93,6 +93,7 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(dgw_DoanhThu);
             tabPage1.Controls.Add(btn_chart);
             tabPage1.Controls.Add(lb_numberOfRentals);
             tabPage1.Controls.Add(lb_totalRevenue);
@@ -104,7 +105,6 @@
             tabPage1.Controls.Add(dtp_denNgay);
             tabPage1.Controls.Add(label1);
             tabPage1.Controls.Add(dtp_tuNgay);
-            tabPage1.Controls.Add(dgw_DoanhThu);
             tabPage1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             tabPage1.Location = new Point(4, 29);
             tabPage1.Margin = new Padding(15);
@@ -114,6 +114,19 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Doanh Thu";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dgw_DoanhThu
+            // 
+            dgw_DoanhThu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgw_DoanhThu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgw_DoanhThu.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgw_DoanhThu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgw_DoanhThu.Location = new Point(11, 89);
+            dgw_DoanhThu.Name = "dgw_DoanhThu";
+            dgw_DoanhThu.RowHeadersWidth = 51;
+            dgw_DoanhThu.RowTemplate.Height = 29;
+            dgw_DoanhThu.Size = new Size(1178, 393);
+            dgw_DoanhThu.TabIndex = 18;
             // 
             // btn_chart
             // 
@@ -132,7 +145,7 @@
             lb_numberOfRentals.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lb_numberOfRentals.AutoSize = true;
             lb_numberOfRentals.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lb_numberOfRentals.Location = new Point(206, 542);
+            lb_numberOfRentals.Location = new Point(234, 542);
             lb_numberOfRentals.Name = "lb_numberOfRentals";
             lb_numberOfRentals.Size = new Size(18, 20);
             lb_numberOfRentals.TabIndex = 16;
@@ -143,7 +156,7 @@
             lb_totalRevenue.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lb_totalRevenue.AutoSize = true;
             lb_totalRevenue.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lb_totalRevenue.Location = new Point(206, 497);
+            lb_totalRevenue.Location = new Point(234, 495);
             lb_totalRevenue.Name = "lb_totalRevenue";
             lb_totalRevenue.Size = new Size(31, 20);
             lb_totalRevenue.TabIndex = 15;
@@ -238,20 +251,6 @@
             dtp_tuNgay.TabIndex = 0;
             dtp_tuNgay.Value = new DateTime(2023, 11, 12, 0, 0, 0, 0);
             // 
-            // dgw_DoanhThu
-            // 
-            dgw_DoanhThu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgw_DoanhThu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgw_DoanhThu.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dgw_DoanhThu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgw_DoanhThu.Location = new Point(0, 90);
-            dgw_DoanhThu.Margin = new Padding(8);
-            dgw_DoanhThu.Name = "dgw_DoanhThu";
-            dgw_DoanhThu.RowHeadersWidth = 51;
-            dgw_DoanhThu.RowTemplate.Height = 24;
-            dgw_DoanhThu.Size = new Size(1204, 375);
-            dgw_DoanhThu.TabIndex = 0;
-            // 
             // tabPage2
             // 
             tabPage2.Controls.Add(btn_search);
@@ -285,7 +284,7 @@
             // 
             // btn_search
             // 
-            btn_search.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_search.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btn_search.Location = new Point(1043, 31);
             btn_search.Margin = new Padding(3, 2, 3, 2);
             btn_search.Name = "btn_search";
@@ -310,11 +309,11 @@
             // tbx_price
             // 
             tbx_price.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            tbx_price.Location = new Point(891, 412);
+            tbx_price.Location = new Point(913, 412);
             tbx_price.Margin = new Padding(3, 2, 3, 2);
             tbx_price.Multiline = true;
             tbx_price.Name = "tbx_price";
-            tbx_price.Size = new Size(301, 33);
+            tbx_price.Size = new Size(279, 33);
             tbx_price.TabIndex = 13;
             // 
             // label4
@@ -330,17 +329,17 @@
             // tbx_brand
             // 
             tbx_brand.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            tbx_brand.Location = new Point(892, 276);
+            tbx_brand.Location = new Point(913, 276);
             tbx_brand.Margin = new Padding(3, 2, 3, 2);
             tbx_brand.Multiline = true;
             tbx_brand.Name = "tbx_brand";
-            tbx_brand.Size = new Size(301, 33);
+            tbx_brand.Size = new Size(280, 33);
             tbx_brand.TabIndex = 11;
             // 
             // btn_reset
             // 
             btn_reset.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btn_reset.Location = new Point(1021, 543);
+            btn_reset.Location = new Point(1021, 538);
             btn_reset.Margin = new Padding(3, 2, 3, 2);
             btn_reset.Name = "btn_reset";
             btn_reset.Size = new Size(172, 44);
@@ -353,7 +352,7 @@
             // btn_deleteCar
             // 
             btn_deleteCar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btn_deleteCar.Location = new Point(807, 543);
+            btn_deleteCar.Location = new Point(807, 538);
             btn_deleteCar.Margin = new Padding(3, 2, 3, 2);
             btn_deleteCar.Name = "btn_deleteCar";
             btn_deleteCar.Size = new Size(172, 44);
@@ -392,42 +391,42 @@
             // tbx_nameCar
             // 
             tbx_nameCar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            tbx_nameCar.Location = new Point(891, 159);
+            tbx_nameCar.Location = new Point(913, 159);
             tbx_nameCar.Margin = new Padding(3, 2, 3, 2);
             tbx_nameCar.Multiline = true;
             tbx_nameCar.Name = "tbx_nameCar";
-            tbx_nameCar.Size = new Size(302, 33);
+            tbx_nameCar.Size = new Size(280, 33);
             tbx_nameCar.TabIndex = 1;
             // 
             // tbx_typeCar
             // 
             tbx_typeCar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            tbx_typeCar.Location = new Point(891, 213);
+            tbx_typeCar.Location = new Point(913, 213);
             tbx_typeCar.Margin = new Padding(3, 2, 3, 2);
             tbx_typeCar.Multiline = true;
             tbx_typeCar.Name = "tbx_typeCar";
-            tbx_typeCar.Size = new Size(302, 33);
+            tbx_typeCar.Size = new Size(280, 33);
             tbx_typeCar.TabIndex = 2;
             // 
             // tbx_statuts
             // 
             tbx_statuts.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            tbx_statuts.Location = new Point(892, 347);
+            tbx_statuts.Location = new Point(913, 347);
             tbx_statuts.Margin = new Padding(3, 2, 3, 2);
             tbx_statuts.Multiline = true;
             tbx_statuts.Name = "tbx_statuts";
-            tbx_statuts.Size = new Size(301, 33);
+            tbx_statuts.Size = new Size(280, 33);
             tbx_statuts.TabIndex = 4;
             // 
             // tbx_ID
             // 
             tbx_ID.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             tbx_ID.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            tbx_ID.Location = new Point(891, 97);
+            tbx_ID.Location = new Point(913, 97);
             tbx_ID.Margin = new Padding(3, 2, 3, 2);
             tbx_ID.Multiline = true;
             tbx_ID.Name = "tbx_ID";
-            tbx_ID.Size = new Size(302, 33);
+            tbx_ID.Size = new Size(280, 33);
             tbx_ID.TabIndex = 0;
             // 
             // label8
@@ -589,7 +588,6 @@
         private TabPage tabPage1;
         private TabPage tabPage2;
         private TabPage tpg_Schedule;
-        private DataGridView dgw_DoanhThu;
         private DataGridView dgw_carManagement;
         private DataGridView dgw_Schedule;
         private DateTimePicker dtp_denNgay;
@@ -627,5 +625,6 @@
         private Button btn_search;
         private TextBox tb_search;
         private Button btn_successSchedule;
+        private DataGridView dgw_DoanhThu;
     }
 }

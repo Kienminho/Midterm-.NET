@@ -1,5 +1,6 @@
 ﻿
 using DTO.Entity;
+using DTO.Response;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
 using System.Reflection;
@@ -22,6 +23,7 @@ namespace DAL
                         {
                             CustomerId = c.CustomerId,
                             FullName = c.FullName,
+                            CCCD = c.CCCD,
                             Address = c.Address,
                             PhoneNumber = c.PhoneNumber,
                             Gender = c.Gender
@@ -52,13 +54,14 @@ namespace DAL
         }
 
         //add customer
-        public async Task<Customer> addCustomer(string name, string phoneNumber, string address, string gender) {
+        public async Task<Customer> addCustomer(string name, string phoneNumber, string address, string gender, string cccd) {
             Guid customerId = Guid.NewGuid();
             Customer newCustomer = new Customer
             {
                 CustomerId=customerId,
                 FullName=name,
                 Address = address,
+                CCCD = cccd,
                 PhoneNumber=phoneNumber,
                 Gender=gender
             
@@ -77,6 +80,7 @@ namespace DAL
                                 .FirstOrDefaultAsync(c => c.CustomerId == customer.CustomerId);
             existCustomer.FullName = customer.FullName;
             existCustomer.Address = customer.Address;
+            existCustomer.CCCD = customer.CCCD;
             existCustomer.PhoneNumber = customer.PhoneNumber;
             existCustomer.Gender = customer.Gender;
 

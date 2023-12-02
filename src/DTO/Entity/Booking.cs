@@ -10,6 +10,8 @@
         //Ngày trả xe
         public DateTime ToDate { get; set; }
 
+        public DateTime CreatedDate { get; set; }
+
         //tổng phí thuê xe
         public double TotalCosts { get; set; }
 

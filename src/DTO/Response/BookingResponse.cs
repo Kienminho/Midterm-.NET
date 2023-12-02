@@ -20,6 +20,7 @@ namespace DTO.Response
         public double TotalCosts { get; set; }
 
         public string? NameCar { get; set; }
+
         public string? Brand { get; set; }
 
         public string? FullName { get; set; }
@@ -27,6 +28,7 @@ namespace DTO.Response
         public string? PhoneNumber { get; set; }
 
         public string? Address { get; set; }
+        public DateTime CreatedDate { get; set; }
 
         //trạng thái đơn hàng
         public String? Status { get; set; }
